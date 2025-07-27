@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARADISE ROLEPLAY | Premium Roleplay Experience</title>
+    <link rel="icon" type="image/x-icon" href="https://r2.fivemanage.com/52eJuqoGTwb7xhUEC0or9/PRP_Logo_No_BG.png">
+    <meta name="description" content="Experience the ultimate FiveM roleplay server with realistic gameplay, custom cars, jobs, and more."/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#FFD700',
+                        'dark-gold': '#D4AF37',
+                        black: '#121212',
+                        dark: '#0F0F0F',
+                        'dark-light': '#1A1A1A',
+                        glass: 'rgba(18, 18, 18, 0.95)',
+                        'glass-light': 'rgba(255, 255, 255, 0.1)',
+                        red: '#ff4444',
+                        green: '#00C851',
+                        blue: '#33b5e5',
+                        purple: '#9933CC',
+                        discord: '#5865F2',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        orbitron: ['Orbitron', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-right': 'slideRight 0.5s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                        'gradient-shift': 'gradientShift 8s ease-in-out infinite',
+                        'text-glow': 'textGlow 3s ease-in-out infinite alternate',
+                        'card-float': 'cardFloat 6s ease-in-out infinite',
+                        'neon-pulse': 'neonPulse 2s ease-in-out infinite alternate',
+                        'matrix-rain': 'matrixRain 20s linear infinite',
+                        'hologram': 'hologram 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            '0%': { textShadow: '0 0 5px rgba(255, 215, 0, 0.5)' },
+                            '100%': { textShadow: '0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6)' },
+                        },
+                        slideRight: {
+                            '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.9)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                        gradientShift: {
+                            '0%, 100%': { background: 'linear-gradient(45deg, #121212, #1a1a1a, #121212)' },
+                            '50%': { background: 'linear-gradient(45deg, #1a1a1a, #121212, #1a1a1a)' },
+                        },
+                        textGlow: {
+                            '0%': { textShadow: '0 0 10px rgba(255, 215, 0, 0.3)' },
+                            '100%': { textShadow: '0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.5)' },
+                        },
+                        cardFloat: {
+                            '0%, 100%': { transform: 'translateY(0) rotateX(0deg)' },
+                            '50%': { transform: 'translateY(-5px) rotateX(2deg)' },
+                        },
+                        neonPulse: {
+                            '0%': { boxShadow: '0 0 20px rgba(255, 215, 0, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(255, 215, 0, 0.7), 0 0 60px rgba(255, 215, 0, 0.4)' },
+                        },
+                        matrixRain: {
+                            '0%': { transform: 'translateY(-100vh)' },
+                            '100%': { transform: 'translateY(100vh)' },
+                        },
+                        hologram: {
+                            '0%, 100%': { opacity: '0.8', transform: 'scale(1)' },
+                            '50%': { opacity: '1', transform: 'scale(1.02)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #121212;
+            background-image: url('assets/img/bg-pattern.png');
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+        
+        /* Advanced Particle System */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: rgba(255, 215, 0, 0.6);
+            border-radius: 50%;
+            animation: particleFloat 15s infinite linear;
+        }
+        
+        .particle.large {
+            width: 4px;
+            height: 4px;
+            background-color: rgba(255, 215, 0, 0.4);
+            animation: particleFloat 20s infinite linear;
+        }
+        
+        .particle.small {
+            width: 1px;
+            height: 1px;
+            background-color: rgba(255, 215, 0, 0.8);
+            animation: particleFloat 10s infinite linear;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Matrix Rain Effect */
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .matrix-column {
+            position: absolute;
+            top: -100vh;
+            color: rgba(255, 215, 0, 0.1);
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 12px;
+            animation: matrixRain linear infinite;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #121212;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #FFD700, #D4AF37);
+            border-radius: 10px;
+            border: 2px solid #121212;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #D4AF37, #FFD700);
+        }
+        
+        /* Advanced Glow Effects */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        .neon-border {
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.2),
+                inset 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+        
+        .holographic {
+            background: linear-gradient(45deg, 
+                rgba(255, 215, 0, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 50%, 
+                rgba(255, 215, 0, 0.1) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        /* 3D Card Effects */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-3d:hover {
+            transform: translateY(-15px) rotateX(10deg) rotateY(10deg) scale(1.02);
+        }
+        
+        /* Feature Card Enhancements */
+        .feature-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            animation: spin-slow 8s linear infinite;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+        
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: rgba(18, 18, 18, 0.95);
+            border-radius: 14px;
+            z-index: 1;
+        }
+        
+        .feature-card > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Animated Backgrounds */
+        .animated-bg {
+            background: linear-gradient(45deg, #121212, #1a1a1a, #121212, #0f0f0f);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        /* Video Container Enhancements */
+        .hero-video-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-video-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 20%, rgba(255, 215, 0, 0.05) 80%);
+            z-index: 1;
+            animation: hologram 4s ease-in-out infinite;
+        }
+        
+        /* Stats Animation */
+        .stat-counter {
+            display: inline-block;
+            font-variant-numeric: tabular-nums;
+        }
+        
+        /* Shine Effect */
+        .shine {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            animation: shine 6s infinite;
+        }
+        
+        @keyframes shine {
+            0% {
+                transform: rotate(30deg) translate(-100%, -100%);
+            }
+            100% {
+                transform: rotate(30deg) translate(100%, 100%);
+            }
+        }
+        
+        /* Pulse Effects */
+        .pulse-ring {
+            position: relative;
+        }
+        
+        .pulse-ring::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(255, 215, 0, 0.6);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        
+        @keyframes pulseRing {
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.8);
+                opacity: 0;
+            }
+        }
+        
+        /* Loading Animation */
+        .loading-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .loading-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.8), transparent);
+            animation: loadingSlide 2s ease-in-out infinite;
+        }
+        
+        @keyframes loadingSlide {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        /* Typewriter Effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid rgba(255, 215, 0, 0.75);
+            white-space: nowrap;
+            animation: typewriter 4s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        
+        @keyframes blink-caret {
+            from, to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: rgba(255, 215, 0, 0.75);
+            }
+        }
+        
+        /* Glitch Effects */
+        .glitch {
+            position: relative;
+            animation: glitch 5s infinite linear alternate-reverse;
+        }
+        
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-1 5s infinite linear alternate-reverse;
+        }
+        
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+            animation: glitch-2 1s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch {
+            0% {
+                transform: skew(0.85deg);
+            }
+            20% {
+                transform: skew(0.35deg);
+            }
+            40% {
+                transform: skew(-0.15deg);
+            }
+            60% {
+                transform: skew(0.45deg);
+            }
+            80% {
+                transform: skew(0.75deg);
+            }
+            100% {
+                transform: skew(-0.25deg);
+            }
+        }
+        
+        @keyframes glitch-1 {
+            0% {
+                clip: rect(12px, 9999px, 52px, 0);
+            }
+            25% {
+                clip: rect(33px, 9999px, 97px, 0);
+            }
+            50% {
+                clip: rect(81px, 9999px, 43px, 0);
+            }
+            75% {
+                clip: rect(26px, 9999px, 67px, 0);
+            }
+            100% {
+                clip: rect(18px, 9999px, 82px, 0);
+            }
+        }
+        
+        @keyframes glitch-2 {
+            0% {
+                clip: rect(54px, 9999px, 30px, 0);
+            }
+            25% {
+                clip: rect(24px, 9999px, 71px, 0);
+            }
+            50% {
+                clip: rect(90px, 9999px, 40px, 0);
+            }
+            75% {
+                clip: rect(67px, 9999px, 84px, 0);
+            }
+            100% {
+                clip: rect(23px, 9999px, 61px, 0);
+            }
+        }
+        
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(odd) {
+            animation-delay: -2s;
+            animation-duration: 8s;
+        }
+        
+        .floating-element:nth-child(even) {
+            animation-delay: -4s;
+            animation-duration: 10s;
+        }
+        
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .particle {
+                display: none;
+            }
+            
+            .matrix-rain {
+                display: none;
+            }
+            
+            .feature-card::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-white min-h-screen flex flex-col animated-bg">
+    <!-- Advanced Particle System -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Matrix Rain Background -->
+    <div class="matrix-rain" id="matrix-rain"></div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-element text-gold text-6xl" style="top: 10%; left: 5%;">
+        <i class="fas fa-crown"></i>
+    </div>
+    <div class="floating-element text-gold text-4xl" style="top: 60%; right: 10%;">
+        <i class="fas fa-gem"></i>
+    </div>
+    <div class="floating-element text-gold text-5xl" style="bottom: 20%; left: 15%;">
+        <i class="fas fa-star"></i>
+    </div>
+
+    <!-- Enhanced Navbar -->
+    <nav class="bg-glass backdrop-blur-md shadow-lg fixed w-full z-50 border-b border-gold/20 neon-border">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold flex items-center gap-1 shine glow-text">
+                        <span class="text-gold animate-glow font-orbitron">PARADISE</span> 
+                        <span class="text-white font-orbitron">ROLEPLAY</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gold border-b-2 border-gold pb-1 transition duration-300 glow-text">Home</a>
+                    <a href="about.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">About</a>
+                    <a href="server.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">Server</a>
+                    <a href="gallery.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">Gallery</a>
+                    <a href="contact.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">Contact</a>
+                    <a href="staff.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">Staff</a>
+                    <a href="factions.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">Factions</a>
+                    <a href="gangs.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">Gangs</a>
+                    <a href="join.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">Join</a>
+                    <div class="relative group">
+                        <button class="text-white hover:text-gold transition duration-300 flex items-center gap-1 group-hover:scale-110">
+                            Rules
+                            <i class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-glass backdrop-blur-md rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 border border-gold/20 neon-border">
+                            <a href="rules/index.html" class="block px-4 py-2 text-white hover:text-gold hover:bg-dark/50 transition duration-300 flex items-center gap-2 hover:translate-x-1">
+                                <i class="fas fa-book text-xs"></i>
+                                Rules Hub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-white hover:text-gold focus:outline-none p-2 transition-transform hover:scale-110">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-glass backdrop-blur-md border-t border-gold/10 p-4 animate-slide-up">
+            <div class="flex flex-col space-y-2">
+                <a href="index.html" class="text-gold py-2 px-3 rounded bg-black/30 transition duration-300">Home</a>
+                <a href="about.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">About</a>
+                <a href="staff.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Staff</a>
+                <a href="factions.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Factions</a>
+                <a href="gangs.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Gangs</a>
+                <a href="join.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Join</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Enhanced Video Background -->
+        <div class="absolute inset-0 z-0">
+            <div class="hero-video-container absolute inset-0">
+                <iframe 
+                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[200vw] h-[200vh] pointer-events-none"
+                    src="https://www.youtube.com/embed/KWAHGy_eee4?autoplay=1&mute=1&controls=0&loop=1&playlist=KWAHGy_eee4&modestbranding=1&rel=0&start=0&enablejsapi=1&version=3&playerapiid=ytplayer" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/60 to-black/90"></div>
+        </div>
+
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="w-32 h-32 absolute top-1/4 left-1/4 opacity-10 bg-gold rounded-full blur-3xl animate-pulse-slow"></div>
+            <div class="w-48 h-48 absolute bottom-1/4 right-1/4 opacity-5 bg-gold rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+            <div class="w-24 h-24 absolute top-1/3 right-1/3 opacity-15 bg-gold rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <!-- Logo for Mobile -->
+            <div class="md:hidden w-24 h-24 mx-auto mb-8 relative" data-aos="zoom-in">
+                <div class="absolute inset-0 bg-gold rounded-full opacity-20 animate-pulse-slow"></div>
+                <img src="https://r2.fivemanage.com/52eJuqoGTwb7xhUEC0or9/PRP_Logo_No_BG.png" 
+                     alt="Paradise RP Logo" 
+                     class="w-full h-full object-contain relative z-10 animate-float">
+            </div>
+            
+            <!-- Enhanced Title -->
+            <div data-aos="fade-down" data-aos-duration="1000">
+                <h1 class="text-4xl md:text-7xl font-bold mb-6 tracking-wider font-orbitron">
+                    <span class="glitch text-gold glow-text animate-text-glow inline-block transform hover:scale-105 transition-transform duration-300" 
+                          data-text="PARADISE">PARADISE</span>
+                    <br>
+                    <span class="text-white animate-fade-in" style="animation-delay: 0.5s;">ROLEPLAY</span>
+                </h1>
+            </div>
+            
+            <!-- Enhanced Description with Typewriter Effect -->
+            <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 typewriter" 
+               data-aos="fade-up" data-aos-delay="200">
+                Experience the Ultimate FiveM Roleplay Server
+            </p>
+            
+            <!-- Enhanced Action Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-12" data-aos="fade-up" data-aos-delay="400">
+                <a href="join.html" 
+                   class="card-3d px-8 py-4 bg-gradient-to-r from-gold to-dark-gold text-black font-bold rounded-lg hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 flex items-center justify-center group neon-pulse">
+                    <i class="fas fa-play mr-2 group-hover:scale-110 transition-transform"></i>
+                    Join Server
+                </a>
+                <a href="about.html" 
+                   class="card-3d px-8 py-4 bg-glass backdrop-blur-md border border-gold/30 text-white rounded-lg hover:bg-gold/20 transition-all duration-300 flex items-center justify-center group">
+                    <i class="fas fa-info-circle mr-2 group-hover:translate-x-1 transition-transform"></i>
+                    Learn More
+                </a>
+            </div>
+
+            <!-- Enhanced Stats Dashboard -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="600">
+                <div class="holographic p-6 rounded-xl text-center card-3d animate-card-float">
+                    <div class="text-3xl font-bold text-gold pulse-ring mb-2">
+                        <span class="stat-counter">72</span>/128
+                    </div>
+                    <p class="text-gray-400 text-sm">Players Online</p>
+                    <div class="loading-bar mt-2"></div>
+                </div>
+                <div class="holographic p-6 rounded-xl text-center card-3d animate-card-float" style="animation-delay: 0.5s;">
+                    <div class="text-3xl font-bold text-gold pulse-ring mb-2">24/7</div>
+                    <p class="text-gray-400 text-sm">Server Uptime</p>
+                    <div class="loading-bar mt-2"></div>
+                </div>
+                <div class="holographic p-6 rounded-xl text-center card-3d animate-card-float" style="animation-delay: 1s;">
+                    <div class="text-3xl font-bold text-gold pulse-ring mb-2">
+                        <span class="stat-counter">500</span>+
+                    </div>
+                    <p class="text-gray-400 text-sm">Registered Users</p>
+                    <div class="loading-bar mt-2"></div>
+                </div>
+                <div class="holographic p-6 rounded-xl text-center card-3d animate-card-float" style="animation-delay: 1.5s;">
+                    <div class="text-3xl font-bold text-gold pulse-ring mb-2">
+                        <span class="stat-counter">50</span>+
+                    </div>
+                    <p class="text-gray-400 text-sm">Custom Vehicles</p>
+                    <div class="loading-bar mt-2"></div>
+                </div>
+            </div>
+
+            <!-- Social Media for Mobile -->
+            <div class="md:hidden flex justify-center gap-6 mb-8" data-aos="fade-up" data-aos-delay="800">
+                <a href="https://discord.gg/prpk" target="_blank" 
+                   class="w-12 h-12 bg-discord/20 rounded-full flex items-center justify-center hover:bg-discord/30 transition-all duration-300 hover:scale-110 pulse-ring">
+                    <i class="fab fa-discord text-discord text-xl"></i>
+                </a>
+                <a href="https://www.youtube.com/@storeyes/featured" target="_blank" 
+                   class="w-12 h-12 bg-red/20 rounded-full flex items-center justify-center hover:bg-red/30 transition-all duration-300 hover:scale-110 pulse-ring">
+                    <i class="fab fa-youtube text-red text-xl"></i>
+                </a>
+                <a href="#" class="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full flex items-center justify-center hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 hover:scale-110 pulse-ring">
+                    <i class="fab fa-instagram text-pink-400 text-xl"></i>
+                </a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="animate-bounce mt-8" data-aos="fade-up" data-aos-delay="1000">
+                <p class="text-gray-400 text-sm">
+                    <span class="text-gold glow-text">Copyright by</span>
+                    <span class="text-white font-semibold"> Paradise RP</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce" data-aos="fade-up" data-aos-delay="1200">
+            <div class="w-6 h-10 border-2 border-gold rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-gold rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fixed Side Elements -->
+    <div class="hidden md:block fixed left-6 top-1/2 transform -translate-y-1/2 z-40">
+        <!-- Logo -->
+        <div class="mb-8 relative">
+            <div class="w-16 h-16 bg-glass backdrop-blur-md rounded-full border border-gold/30 flex items-center justify-center neon-border pulse-ring">
+                <img src="https://r2.fivemanage.com/52eJuqoGTwb7xhUEC0or9/PRP_Logo_No_BG.png" 
+                     alt="Paradise RP Logo" 
+                     class="w-10 h-10 object-contain animate-float">
+            </div>
+        </div>
+        
+        <!-- Social Icons -->
+        <div class="flex flex-col gap-4">
+            <a href="https://discord.gg/prpk" target="_blank" 
+               class="w-12 h-12 bg-discord/20 rounded-full flex items-center justify-center hover:bg-discord/30 transition-all duration-300 hover:scale-110 pulse-ring">
+                <i class="fab fa-discord text-discord"></i>
+            </a>
+            <a href="https://www.youtube.com/@storeyes/featured" target="_blank" 
+               class="w-12 h-12 bg-red/20 rounded-full flex items-center justify-center hover:bg-red/30 transition-all duration-300 hover:scale-110 pulse-ring">
+                <i class="fab fa-youtube text-red"></i>
+            </a>
+            <a href="#" class="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full flex items-center justify-center hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 hover:scale-110 pulse-ring">
+                <i class="fab fa-instagram text-pink-400"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Scroll Buttons -->
+    <div class="hidden md:block fixed right-6 bottom-24 z-40">
+        <button id="scrollToTop" class="w-12 h-12 bg-glass backdrop-blur-md rounded-full flex items-center justify-center hover:bg-gold/20 transition-all duration-300 mb-4 opacity-0 neon-border">
+            <i class="fas fa-chevron-up text-gold"></i>
+        </button>
+        <button id="scrollToBottom" class="w-12 h-12 bg-glass backdrop-blur-md rounded-full flex items-center justify-center hover:bg-gold/20 transition-all duration-300 neon-border">
+            <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+    </div>
+
+    <!-- Enhanced Features Section -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 font-orbitron">
+                    <span class="text-gold glow-text">Server Features</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-gold to-dark-gold mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Feature Card 1 -->
+                <div class="feature-card holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                            <i class="fas fa-user-tie text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 glow-text">Immersive Roleplay</h3>
+                        <p class="text-gray-300 leading-relaxed">Experience realistic roleplay with custom interaction systems, detailed character development, and engaging storylines that evolve with the community.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Premium</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Customized</span>
+                    </div>
+                </div>
+
+                <!-- Feature Card 2 -->
+                <div class="feature-card holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                            <i class="fas fa-car text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 glow-text">Custom Vehicles</h3>
+                        <p class="text-gray-300 leading-relaxed">Explore our extensive collection of high-quality custom vehicles with unique modifications, realistic handling, and immersive sound effects.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Custom Sound</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Quality</span>
+                    </div>
+                </div>
+
+                <!-- Feature Card 3 -->
+                <div class="feature-card holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                            <i class="fas fa-user-shield text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 glow-text">Active Staff</h3>
+                        <p class="text-gray-300 leading-relaxed">Our dedicated team ensures a fair and enjoyable experience for all players with 24/7 support, professional moderation, and community events.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Professional</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">24/7</span>
+                    </div>
+                </div>
+
+                <!-- Feature Card 4 -->
+                <div class="feature-card holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                            <i class="fas fa-city text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 glow-text">Custom Map</h3>
+                        <p class="text-gray-300 leading-relaxed">Explore our enhanced Los Santos with custom interiors, exclusive locations, hidden areas, and interactive environments designed for immersive roleplay.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Enhanced</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Interactive</span>
+                    </div>
+                </div>
+
+                <!-- Feature Card 5 -->
+                <div class="feature-card holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="500">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                            <i class="fas fa-briefcase text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 glow-text">Diverse Jobs</h3>
+                        <p class="text-gray-300 leading-relaxed">Choose from a wide variety of legal and illegal professions, each with unique mechanics, progression systems, and roleplay opportunities.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Variety</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Progression</span>
+                    </div>
+                </div>
+
+                <!-- Feature Card 6 -->
+                <div class="feature-card holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="600">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                            <i class="fas fa-users text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 glow-text">Active Community</h3>
+                        <p class="text-gray-300 leading-relaxed">Join a vibrant community of passionate roleplayers, participate in events, build relationships, and create unforgettable stories together.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Vibrant</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Events</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Quick Access Section -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 font-orbitron">
+                    <span class="text-gold glow-text">Quick Access</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-gold to-dark-gold mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Connection Card -->
+                <div class="holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                            <i class="fas fa-server text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-6 glow-text">Server Connection</h3>
+                    </div>
+                    
+                    <div class="holographic p-4 rounded-lg mb-6 border border-gold/30">
+                        <div class="flex items-center justify-between">
+                            <code class="text-gold font-mono text-sm">cfx.re/join/q33xb4</code>
+                            <button id="copy-ip" class="text-white hover:text-gold transition-colors p-2">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="flex items-center justify-center gap-2 mb-4">
+                            <div class="w-3 h-3 bg-green rounded-full animate-pulse"></div>
+                            <span class="text-green font-semibold">Server Online</span>
+                        </div>
+                        <a href="join.html" class="inline-flex items-center text-gold hover:text-white transition-colors">
+                            Connect Now <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Discord Card -->
+                <div class="holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-discord/20 to-discord/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                            <i class="fab fa-discord text-3xl text-discord"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-6 glow-text">Join Discord</h3>
+                    </div>
+                    
+                    <p class="text-gray-300 text-center mb-6 leading-relaxed">
+                        Connect with our community, get support, participate in events, and stay updated with the latest news.
+                    </p>
+                    
+                    <div class="text-center">
+                        <a href="https://discord.gg/prpk" target="_blank" 
+                           class="inline-flex items-center px-6 py-3 bg-discord/20 hover:bg-discord/30 text-discord border border-discord/30 rounded-lg transition-all duration-300 group">
+                            <i class="fab fa-discord mr-2 group-hover:scale-110 transition-transform"></i>
+                            Join Server
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Server Status Card -->
+                <div class="holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green/20 to-green/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                            <i class="fas fa-signal text-3xl text-green"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-6 glow-text">Server Status</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="holographic p-4 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-gold mb-2">
+                                <span class="stat-counter">72</span>/128
+                            </div>
+                            <p class="text-gray-400 text-sm">Players</p>
+                        </div>
+                        <div class="holographic p-4 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-gold mb-2">99.9%</div>
+                            <p class="text-gray-400 text-sm">Uptime</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <a href="server.html" class="inline-flex items-center text-gold hover:text-white transition-colors">
+                            View Details <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Recent Updates Section -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 font-orbitron">
+                    <span class="text-gold glow-text">Recent Updates</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-gold to-dark-gold mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Update Card 1 -->
+                <div class="holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center pulse-ring">
+                            <i class="fas fa-car-side text-3xl text-gold"></i>
+                        </div>
+                        <div class="text-right">
+                            <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">v1.8.5</span>
+                            <p class="text-gray-400 text-sm mt-2">2 days ago</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-white mb-4 glow-text">New Vehicle Pack</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        We've added 15 new custom vehicles including BMW M8 Competition 2020, Mercedes-AMG GT 63S 2023, and more premium vehicles with realistic handling.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">New Content</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Vehicles</span>
+                    </div>
+                    
+                    <button class="read-more-btn w-full p-3 holographic rounded-lg border border-gold/30 text-gold hover:text-white transition-colors">
+                        <span>Read More</span>
+                        <i class="fas fa-chevron-down ml-2 transition-transform"></i>
+                    </button>
+                    
+                    <div class="read-more-content hidden mt-6 space-y-4">
+                        <div class="holographic p-4 rounded-lg">
+                            <h4 class="text-gold font-semibold mb-2">🚗 New Vehicles Added:</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• BMW M8 Competition 2020</li>
+                                <li>• Mercedes-AMG GT 63S 2023</li>
+                                <li>• Porsche 911 GT3 RS 2023</li>
+                                <li>• Audi RS7 Sportback 2023</li>
+                                <li>• And 11 more premium vehicles...</li>
+                            </ul>
+                        </div>
+                        <div class="holographic p-4 rounded-lg">
+                            <h4 class="text-gold font-semibold mb-2">🔧 Features:</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Custom handling for each vehicle</li>
+                                <li>• Realistic engine sounds</li>
+                                <li>• Detailed interiors and exteriors</li>
+                                <li>• Custom modification options</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Update Card 2 -->
+                <div class="holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center pulse-ring">
+                            <i class="fas fa-map-marked-alt text-3xl text-gold"></i>
+                        </div>
+                        <div class="text-right">
+                            <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">v1.8.4</span>
+                            <p class="text-gray-400 text-sm mt-2">5 days ago</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-white mb-4 glow-text">Map Expansion</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        New areas added including luxury shopping mall, underground parking complex, residential district, and multiple entertainment zones.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Map Update</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Locations</span>
+                    </div>
+                    
+                    <button class="read-more-btn w-full p-3 holographic rounded-lg border border-gold/30 text-gold hover:text-white transition-colors">
+                        <span>Read More</span>
+                        <i class="fas fa-chevron-down ml-2 transition-transform"></i>
+                    </button>
+                    
+                    <div class="read-more-content hidden mt-6 space-y-4">
+                        <div class="holographic p-4 rounded-lg">
+                            <h4 class="text-gold font-semibold mb-2">🏢 New Areas:</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Luxury Shopping Mall</li>
+                                <li>• Underground Parking Complex</li>
+                                <li>• New Residential District</li>
+                                <li>• Entertainment Zone</li>
+                                <li>• VIP Exclusive Areas</li>
+                            </ul>
+                        </div>
+                        <div class="holographic p-4 rounded-lg">
+                            <h4 class="text-gold font-semibold mb-2">🎮 Features:</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Interactive shops and stores</li>
+                                <li>• New job opportunities</li>
+                                <li>• Hidden collectibles</li>
+                                <li>• Special events locations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced CTA Section -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="w-96 h-96 absolute top-1/4 left-1/4 opacity-10 bg-gold rounded-full blur-3xl animate-pulse-slow"></div>
+            <div class="w-96 h-96 absolute bottom-1/4 right-1/4 opacity-10 bg-gold rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                <div class="holographic p-12 rounded-xl card-3d animate-card-float">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 font-orbitron">
+                        Ready to Start Your <span class="text-gold glow-text">Adventure?</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
+                        Join thousands of players in the most immersive FiveM roleplay experience. Create your character, build your story, and become part of our thriving community.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row justify-center gap-6 mb-8">
+                        <a href="join.html" 
+                           class="card-3d px-8 py-4 bg-gradient-to-r from-gold to-dark-gold text-black font-bold rounded-lg hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 flex items-center justify-center group neon-pulse">
+                            <i class="fas fa-gamepad mr-2 group-hover:scale-110 transition-transform"></i>
+                            Join Server Now
+                        </a>
+                        <a href="https://discord.gg/prpk" target="_blank" 
+                           class="card-3d px-8 py-4 bg-discord/20 border border-discord/30 text-discord rounded-lg hover:bg-discord/30 transition-all duration-300 flex items-center justify-center group">
+                            <i class="fab fa-discord mr-2 group-hover:scale-110 transition-transform"></i>
+                            Join Discord
+                        </a>
+                    </div>
+                    
+                    <p class="text-gray-400 text-sm">
+                        <span class="text-gold glow-text">Copyright by</span>
+                        <span class="text-white font-semibold"> Paradise RP</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-black/50 backdrop-blur-md py-16 border-t border-gold/20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Column 1 -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <a href="index.html" class="text-2xl font-bold text-gold shine glow-text font-orbitron">
+                        PARADISE <span class="text-white">ROLEPLAY</span>
+                    </a>
+                    <p class="mt-4 text-gray-400 leading-relaxed">
+                        Experience the most immersive FiveM roleplay server with custom scripts, vehicles, and an active community of passionate players.
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="https://discord.gg/prpk" target="_blank" 
+                           class="w-10 h-10 bg-discord/20 rounded-lg flex items-center justify-center hover:bg-discord/30 transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-discord text-discord"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@storeyes/featured" target="_blank" 
+                           class="w-10 h-10 bg-red/20 rounded-lg flex items-center justify-center hover:bg-red/30 transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-youtube text-red"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg flex items-center justify-center hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-instagram text-pink-400"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-white font-bold mb-6 text-lg glow-text">Navigation</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-home w-4 mr-2"></i>Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-info-circle w-4 mr-2"></i>About</a></li>
+                        <li><a href="staff.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-users w-4 mr-2"></i>Staff</a></li>
+                        <li><a href="factions.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-shield-alt w-4 mr-2"></i>Factions</a></li>
+                        <li><a href="gangs.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-skull w-4 mr-2"></i>Gangs</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-white font-bold mb-6 text-lg glow-text">Server Info</h4>
+                    <ul class="space-y-3">
+                        <li><a href="join.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-play w-4 mr-2"></i>How to Join</a></li>
+                        <li><a href="rules/index.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-book w-4 mr-2"></i>Server Rules</a></li>
+                        <li><a href="wall-of-fame.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-trophy w-4 mr-2"></i>Wall of Fame</a></li>
+                        <li><span class="text-gray-400 flex items-center"><i class="fas fa-users w-4 mr-2"></i>500+ Members</span></li>
+                        <li><span class="text-gray-400 flex items-center"><i class="fas fa-clock w-4 mr-2"></i>24/7 Online</span></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="text-white font-bold mb-6 text-lg glow-text">Connect</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-gray-400 mb-2">Server IP:</p>
+                            <div class="flex items-center gap-2">
+                                <code class="text-gold text-sm bg-black/50 px-3 py-2 rounded border border-gold/30">cfx.re/join/q33xb4</code>
+                                <button class="copy-ip text-gray-400 hover:text-gold cursor-pointer p-2">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 mb-2">Status:</p>
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 bg-green rounded-full animate-pulse"></div>
+                                <span class="text-green font-semibold">Online</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="border-gold/20 my-8">
+            
+            <div class="text-center text-gray-500 text-sm">
+                <p>&copy; 2025 PARADISE ROLEPLAY. All rights reserved.</p>
+                <p class="mt-2">Not affiliated with Rockstar Games, Inc. or Take-Two Interactive Software, Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('animate-slide-up');
+                    mobileMenuButton.innerHTML = '<i class="fas fa-times text-xl"></i>';
+                } else {
+                    mobileMenuButton.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+                }
+            });
+        }
+        
+        // Advanced Particle System
+        function createAdvancedParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 60;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                
+                // Random particle types
+                const types = ['particle', 'particle large', 'particle small'];
+                particle.className = types[Math.floor(Math.random() * types.length)];
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                
+                // Random animation duration and delay
+                const duration = Math.random() * 15 + 10;
+                const delay = Math.random() * 10;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Matrix Rain Effect
+        function createMatrixRain() {
+            const matrixContainer = document.getElementById('matrix-rain');
+            const columnCount = Math.floor(window.innerWidth / 20);
+            const characters = '01PARADISE';
+            
+            for (let i = 0; i < columnCount; i++) {
+                const column = document.createElement('div');
+                column.className = 'matrix-column';
+                column.style.left = `${(i * 20)}px`;
+                column.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                column.style.animationDelay = `${Math.random() * 5}s`;
+                
+                let text = '';
+                for (let j = 0; j < 50; j++) {
+                    text += characters[Math.floor(Math.random() * characters.length)] + '\n';
+                }
+                column.textContent = text;
+                
+                matrixContainer.appendChild(column);
+            }
+        }
+        
+        // Scroll Buttons
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        const scrollToBottomBtn = document.getElementById('scrollToBottom');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+                scrollToTopBtn.style.transform = 'scale(1)';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+                scrollToTopBtn.style.transform = 'scale(0.8)';
+            }
+        });
+        
+        scrollToTopBtn?.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        scrollToBottomBtn?.addEventListener('click', () => {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        });
+        
+        // Copy IP functionality
+        const copyIpButtons = document.querySelectorAll('#copy-ip, .copy-ip');
+        copyIpButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const ip = 'cfx.re/join/q33xb4';
+                navigator.clipboard.writeText(ip).then(() => {
+                    const icon = button.querySelector('i');
+                    const originalClass = icon.className;
+                    icon.className = 'fas fa-check';
+                    setTimeout(() => {
+                        icon.className = originalClass;
+                    }, 2000);
+                });
+            });
+        });
+        
+        // Read More functionality
+        const readMoreBtns = document.querySelectorAll('.read-more-btn');
+        readMoreBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+                const span = btn.querySelector('span');
+                
+                if (content.classList.contains('hidden')) {
+                    content.classList.remove('hidden');
+                    icon.style.transform = 'rotate(180deg)';
+                    span.textContent = 'Read Less';
+                } else {
+                    content.classList.add('hidden');
+                    icon.style.transform = 'rotate(0deg)';
+                    span.textContent = 'Read More';
+                }
+            });
+        });
+        
+        // Number Counter Animation
+        function animateNumbers() {
+            const counters = document.querySelectorAll('.stat-counter');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                // Start animation when element is in view
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCounter();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+                
+                observer.observe(counter);
+            });
+        }
+        
+        // Enhanced 3D Card Effects
+        function init3DCards() {
+            const cards = document.querySelectorAll('.card-3d');
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const angleY = (x - centerX) / 10;
+                    const angleX = (centerY - y) / 10;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateZ(20px)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+                });
+            });
+        }
+        
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            createAdvancedParticles();
+            createMatrixRain();
+            animateNumbers();
+            init3DCards();
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+        
+        // Performance optimization - pause animations when page is not visible
+        document.addEventListener('visibilitychange', function() {
+            const particles = document.querySelectorAll('.particle, .matrix-column');
+            particles.forEach(particle => {
+                if (document.hidden) {
+                    particle.style.animationPlayState = 'paused';
+                } else {
+                    particle.style.animationPlayState = 'running';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

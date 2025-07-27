@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Major Rules | PARADISE ROLEPLAY</title>
+  <link rel="icon" type="image/x-icon" href="https://r2.fivemanage.com/52eJuqoGTwb7xhUEC0or9/PRP_Logo_No_BG.png">
+  <meta name="description" content="Major server rules and permanent ban offenses for Paradise Roleplay - The premium FiveM roleplay experience."/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#FFD700',
+            'dark-gold': '#D4AF37',
+            black: '#121212',
+            dark: '#0F0F0F',
+            'dark-light': '#1A1A1A',
+            glass: 'rgba(18, 18, 18, 0.95)',
+            'glass-light': 'rgba(255, 255, 255, 0.1)',
+            red: '#ff4444',
+            'dark-red': '#cc0000',
+            green: '#00C851',
+            blue: '#33b5e5'
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          animation: {
+            'float': 'float 3s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate',
+            'slide-right': 'slideRight 0.5s ease-out',
+            'slide-up': 'slideUp 0.5s ease-out',
+            'fade-in': 'fadeIn 0.5s ease-out',
+            'scale-in': 'scaleIn 0.5s ease-out',
+            'warning-pulse': 'warningPulse 2s infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            glow: {
+              '0%': { textShadow: '0 0 5px rgba(255, 215, 0, 0.5)' },
+              '100%': { textShadow: '0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6)' },
+            },
+            slideRight: {
+              '0%': { transform: 'translateX(-20px)', opacity: '0' },
+              '100%': { transform: 'translateX(0)', opacity: '1' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            scaleIn: {
+              '0%': { transform: 'scale(0.9)', opacity: '0' },
+              '100%': { transform: 'scale(1)', opacity: '1' },
+            },
+            warningPulse: {
+              '0%': { boxShadow: '0 0 0 0 rgba(255, 68, 68, 0.7)' },
+              '70%': { boxShadow: '0 0 0 10px rgba(255, 68, 68, 0)' },
+              '100%': { boxShadow: '0 0 0 0 rgba(255, 68, 68, 0)' },
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #121212;
+      background-image: url('../assets/img/bg-pattern.png');
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+    
+    .rule-card {
+      transition: all 0.3s ease;
+    }
+    
+    .rule-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 68, 68, 0.2);
+      border-color: rgba(255, 68, 68, 0.6);
+    }
+    
+    .hero-video-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: 0;
+      opacity: 0.3;
+    }
+    
+    .permanent-ban-tag {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Particle animation */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background-color: rgba(255, 68, 68, 0.5);
+      border-radius: 50%;
+      animation: particleFloat 15s infinite linear;
+    }
+    
+    @keyframes particleFloat {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(100px);
+        opacity: 0;
+      }
+    }
+    
+    /* Glow effects */
+    .text-glow {
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+    }
+    
+    .red-text-glow {
+      text-shadow: 0 0 10px rgba(255, 68, 68, 0.7);
+    }
+    
+    .gold-glow {
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    }
+    
+    .red-glow {
+      box-shadow: 0 0 15px rgba(255, 68, 68, 0.3);
+    }
+    
+    /* Animated background gradient */
+    .animated-bg {
+      background: linear-gradient(45deg, #121212, #1a1a1a, #121212);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+    
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #121212;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, #ff4444, #cc0000);
+      border-radius: 5px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(to bottom, #cc0000, #ff4444);
+    }
+    
+    /* Animated border */
+    .animated-border {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .animated-border::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ff4444, transparent);
+      animation: borderAnimation 3s linear infinite;
+    }
+    
+    @keyframes borderAnimation {
+      0% {
+        left: -100%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+    
+    /* Floating elements */
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    /* Shine effect */
+    .shine {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .shine::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(30deg);
+      animation: shine 6s infinite;
+    }
+    
+    @keyframes shine {
+      0% {
+        transform: rotate(30deg) translate(-100%, -100%);
+      }
+      100% {
+        transform: rotate(30deg) translate(100%, 100%);
+      }
+    }
+    
+    /* Warning animation */
+    .warning-animation {
+      animation: warningPulse 2s infinite;
+    }
+    
+    @keyframes warningPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.4);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(255, 68, 68, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 68, 68, 0);
+      }
+    }
+  </style>
+</head>
+<body class="font-sans text-white min-h-screen flex flex-col">
+  <!-- Particles Background -->
+  <div class="particles" id="particles"></div>
+  
+  <!-- Navbar -->
+  <nav class="bg-glass backdrop-blur-md shadow-lg fixed w-full z-10 border-b border-red/20 animated-border">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <div class="flex items-center">
+          <a href="../index.html" class="text-2xl font-bold flex items-center gap-1 shine">
+            <span class="text-gold animate-glow">PARADISE</span> <span class="text-white">ROLEPLAY</span>
+          </a>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="../index.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">Home</a>
+          <a href="../about.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">About</a>
+          <a href="../server.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">Server</a>
+          <a href="../gallery.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">Gallery</a>
+          <a href="../contact.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">Contact</a>
+          <div class="relative group">
+            <button class="text-gold border-b-2 border-gold pb-1 transition duration-300 flex items-center gap-1 group-hover:scale-110">
+              Rules
+              <i class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+            </button>
+            <div class="absolute left-0 mt-2 w-48 bg-glass backdrop-blur-md rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 border border-gold/20 gold-glow">
+              <a href="index.html" class="block px-4 py-2 text-white hover:text-gold hover:bg-dark/50 transition duration-300 flex items-center gap-2 hover:translate-x-1">
+                <i class="fas fa-book text-xs"></i>
+                Rules Hub
+              </a>
+              <a href="basic-rules.html" class="block px-4 py-2 text-white hover:text-gold hover:bg-dark/50 transition duration-300 flex items-center gap-2 hover:translate-x-1">
+                <i class="fas fa-shield-alt text-xs"></i>
+                Basic Rules
+              </a>
+              <a href="major-rules.html" class="block px-4 py-2 text-red bg-dark/30 transition duration-300 flex items-center gap-2">
+                <i class="fas fa-exclamation-triangle text-xs"></i>
+                Major Rules
+              </a>
+              <a href="punishments.html" class="block px-4 py-2 text-white hover:text-gold hover:bg-dark/50 transition duration-300 flex items-center gap-2 hover:translate-x-1">
+                <i class="fas fa-gavel text-xs"></i>
+                Punishments
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-white hover:text-gold focus:outline-none p-2 transition-transform hover:scale-110">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-glass backdrop-blur-md border-t border-red/10 p-4 animate-slide-up">
+      <div class="flex flex-col space-y-2">
+        <a href="../index.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Home</a>
+        <a href="../about.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">About</a>
+        <a href="../server.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Server</a>
+        <a href="../gallery.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Gallery</a>
+        <a href="../contact.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Contact</a>
+        
+        <!-- Rules Dropdown -->
+        <div class="py-2 px-3 text-gold bg-black/30 rounded">Rules</div>
+        <div class="pl-6 flex flex-col space-y-2 border-l-2 border-gold/20 ml-3">
+          <a href="index.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Rules Hub</a>
+          <a href="basic-rules.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Basic Rules</a>
+          <a href="major-rules.html" class="text-red py-2 px-3 rounded bg-black/30 transition duration-300">Major Rules</a>
+          <a href="punishments.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Punishments</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-b from-black to-dark relative overflow-hidden animated-bg">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="hero-video-container">
+        <iframe 
+          class="hero-video"
+          src="https://www.youtube.com/embed/KWAHGy_eee4?autoplay=1&mute=1&controls=0&loop=1&playlist=KWAHGy_eee4&modestbranding=1&rel=0&start=0&enablejsapi=1&version=3&playerapiid=ytplayer" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/90 to-dark/90"></div>
+    
+    <!-- Animated elements in header -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="w-20 h-20 absolute top-1/4 left-1/4 opacity-20 bg-red rounded-full blur-3xl animate-pulse-slow"></div>
+      <div class="w-32 h-32 absolute bottom-1/4 right-1/4 opacity-10 bg-red rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
+      <div class="w-24 h-24 absolute top-1/3 right-1/3 opacity-15 bg-red rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10 text-center">
+      <div data-aos="fade-down" data-aos-duration="1000">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-wider">
+          <span class="text-red red-text-glow inline-block transform hover:scale-105 transition-transform duration-300">MAJOR SERVER</span> 
+          <span class="text-gold animate-glow inline-block transform hover:scale-105 transition-transform duration-300">RULES</span>
+        </h1>
+      </div>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+        Permanent Ban & Character Wipe Offenses
+      </p>
+      
+      <!-- Animated arrow -->
+      <div class="mt-12" data-aos="fade-up" data-aos-delay="400">
+        <div class="animate-bounce inline-block">
+          <i class="fas fa-chevron-down text-red text-2xl"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Rules Content -->
+  <section class="py-16 bg-dark relative">
+    <!-- Background decorations -->
+    <div class="absolute top-0 right-0 w-64 h-64 bg-red/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-red/5 rounded-full blur-3xl"></div>
+    
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <!-- Warning Banner -->
+        <div class="bg-gradient-to-r from-red/20 to-dark-red/20 p-8 rounded-xl border border-red/30 text-center mb-16 red-glow warning-animation" data-aos="fade-up">
+          <h3 class="text-3xl font-bold text-white mb-4 red-text-glow">ZERO TOLERANCE POLICY</h3>
+          <p class="text-xl text-gray-200">
+            Violation of any major rule will result in immediate 
+            <span class="inline-block bg-red text-white px-3 py-1 rounded-full text-sm font-bold uppercase permanent-ban-tag ml-2">Permanent Ban</span> 
+            and possible character wipe
+          </p>
+        </div>
+        
+        <!-- General Offenses -->
+        <div class="mb-20" data-aos="fade-up">
+          <h3 class="text-2xl font-bold text-red mb-8 pb-2 border-b border-red/30 flex items-center">
+            <i class="fas fa-exclamation-circle mr-3 float-animation"></i>
+            GENERAL OFFENSES
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Abuse & Harassment -->
+            <div class="rule-card bg-glass backdrop-blur-md p-6 rounded-xl border-t-4 border-red/50 h-full" data-aos="fade-up" data-aos-delay="100">
+              <div class="flex justify-between items-start mb-4">
+                <h4 class="text-lg font-semibold text-white">Abuse & Harassment</h4>
+                <span class="bg-red text-white px-2 py-1 rounded-full text-xs font-bold uppercase permanent-ban-tag">Permanent Ban</span>
+              </div>
+              <p class="text-gray-300 mb-4">Any form of abuse, taunting, or harassment will result in permanent ban.</p>
+              <ul class="space-y-3 text-gray-300 text-sm">
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Disrespecting or abusing staff members</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Disrespect to content creators or female players (no second chances)</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Abusive behavior in any form</li>
+              </ul>
+            </div>
+            
+            <!-- Ban Evasion -->
+            <div class="rule-card bg-glass backdrop-blur-md p-6 rounded-xl border-t-4 border-red/50 h-full" data-aos="fade-up" data-aos-delay="200">
+              <div class="flex justify-between items-start mb-4">
+                <h4 class="text-lg font-semibold text-white">Ban Evasion</h4>
+                <span class="bg-red text-white px-2 py-1 rounded-full text-xs font-bold uppercase permanent-ban-tag">Permanent Ban</span>
+              </div>
+              <p class="text-gray-300 mb-4">Attempting to bypass bans or restrictions will lead to further penalties.</p>
+              <ul class="space-y-3 text-gray-300 text-sm">
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Using alternate accounts to join gang VCs when banned</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Playing from other Steam accounts</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Gangs allowing banned members in VC will be deleted</li>
+              </ul>
+            </div>
+            
+            <!-- Real Money Transactions -->
+            <div class="rule-card bg-glass backdrop-blur-md p-6 rounded-xl border-t-4 border-red/50 h-full" data-aos="fade-up" data-aos-delay="300">
+              <div class="flex justify-between items-start mb-4">
+                <h4 class="text-lg font-semibold text-white">Real Money Transactions</h4>
+                <span class="bg-red text-white px-2 py-1 rounded-full text-xs font-bold uppercase permanent-ban-tag">Permanent Ban</span>
+              </div>
+              <p class="text-gray-300 mb-4">Selling in-game assets for real money is strictly prohibited.</p>
+              <ul class="space-y-3 text-gray-300 text-sm">
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Selling in-game cash, cars, or any items</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Real money trading of any kind</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bug Abuse & Exploits -->
+        <div class="mb-20" data-aos="fade-up">
+          <h3 class="text-2xl font-bold text-red mb-8 pb-2 border-b border-red/30 flex items-center">
+            <i class="fas fa-bug mr-3 float-animation"></i>
+            BUG ABUSE & EXPLOITS
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Game Exploits -->
+            <div class="rule-card bg-glass backdrop-blur-md p-6 rounded-xl border-t-4 border-red/50 h-full" data-aos="fade-up" data-aos-delay="100">
+              <div class="flex justify-between items-start mb-4">
+                <h4 class="text-lg font-semibold text-white">Game Exploits</h4>
+                <span class="bg-red text-white px-2 py-1 rounded-full text-xs font-bold uppercase permanent-ban-tag">Permanent Ban</span>
+              </div>
+              <p class="text-gray-300 mb-4">Exploiting game mechanics or bugs for unfair advantage.</p>
+              <ul class="space-y-3 text-gray-300 text-sm">
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Arena bug to increase health/armor</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Spraying at territories while riding vehicles</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">F8 quit command exploitation</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Canceling server-side animations</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Any major/minor bug abuse including duping guns/ammo</li>
+              </ul>
+            </div>
+            
+            <!-- Unauthorized Modifications -->
+            <div class="rule-card bg-glass backdrop-blur-md p-6 rounded-xl border-t-4 border-red/50 h-full" data-aos="fade-up" data-aos-delay="200">
+              <div class="flex justify-between items-start mb-4">
+                <h4 class="text-lg font-semibold text-white">Unauthorized Modifications</h4>
+                <span class="bg-red text-white px-2 py-1 rounded-full text-xs font-bold uppercase permanent-ban-tag">Permanent Ban</span>
+              </div>
+              <p class="text-gray-300 mb-4">Using prohibited modifications that provide unfair advantages.</p>
+              <ul class="space-y-3 text-gray-300 text-sm">
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Graphic packs that remove water, bushes or props</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Any modification that gives competitive advantage</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Unauthorized recording methods (only NVIDIA/AMD allowed)</li>
+              </ul>
+            </div>
+            
+            <!-- Weapon Boxes -->
+            <div class="rule-card bg-glass backdrop-blur-md p-6 rounded-xl border-t-4 border-red/50 h-full" data-aos="fade-up" data-aos-delay="300">
+              <div class="flex justify-between items-start mb-4">
+                <h4 class="text-lg font-semibold text-white">Weapon Boxes</h4>
+                <span class="bg-red text-white px-2 py-1 rounded-full text-xs font-bold uppercase permanent-ban-tag">Permanent Ban</span>
+              </div>
+              <p class="text-gray-300 mb-4">Unauthorized possession of weapon boxes is strictly prohibited.</p>
+              <ul class="space-y-3 text-gray-300 text-sm">
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Only whitelisted factions may carry weapon boxes</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Any unauthorized possession will result in ban</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Roleplay & Gameplay -->
+        <div class="mb-20" data-aos="fade-up">
+          <h3 class="text-2xl font-bold text-red mb-8 pb-2 border-b border-red/30 flex items-center">
+            <i class="fas fa-theater-masks mr-3 float-animation"></i>
+            ROLEPLAY & GAMEPLAY
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Character Wipe Offenses -->
+            <div class="rule-card bg-glass backdrop-blur-md p-6 rounded-xl border-t-4 border-red/50 h-full" data-aos="fade-up" data-aos-delay="100">
+              <div class="flex justify-between items-start mb-4">
+                <h4 class="text-lg font-semibold text-white">Character Wipe Offenses</h4>
+                <span class="bg-red text-white px-2 py-1 rounded-full text-xs font-bold uppercase permanent-ban-tag">Permanent Ban</span>
+              </div>
+              <p class="text-gray-300 mb-4">Serious violations that result in complete character removal.</p>
+              <ul class="space-y-3 text-gray-300 text-sm">
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Sentenced to death by Chief Justice (character removed)</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Roleplaying same character after death sentence</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Major bug abuse may result in complete account wipe</li>
+              </ul>
+            </div>
+            
+            <!-- Gang Violations -->
+            <div class="rule-card bg-glass backdrop-blur-md p-6 rounded-xl border-t-4 border-red/50 h-full" data-aos="fade-up" data-aos-delay="200">
+              <div class="flex justify-between items-start mb-4">
+                <h4 class="text-lg font-semibold text-white">Gang Violations</h4>
+                <span class="bg-red text-white px-2 py-1 rounded-full text-xs font-bold uppercase permanent-ban-tag">Permanent Ban</span>
+              </div>
+              <p class="text-gray-300 mb-4">Gang-related offenses with severe consequences.</p>
+              <ul class="space-y-3 text-gray-300 text-sm">
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">If 3+ gang members caught exploiting spray bug, whole gang banned</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Dragging permanently banned players into gang VC will delete waiting VC</li>
+              </ul>
+            </div>
+            
+            <!-- Property & Economy -->
+            <div class="rule-card bg-glass backdrop-blur-md p-6 rounded-xl border-t-4 border-red/50 h-full" data-aos="fade-up" data-aos-delay="300">
+              <div class="flex justify-between items-start mb-4">
+                <h4 class="text-lg font-semibold text-white">Property & Economy</h4>
+                <span class="bg-red text-white px-2 py-1 rounded-full text-xs font-bold uppercase permanent-ban-tag">Permanent Ban</span>
+              </div>
+              <p class="text-gray-300 mb-4">Abusing property or economic systems.</p>
+              <ul class="space-y-3 text-gray-300 text-sm">
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Storing white money in house inventories</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Entering labs without required cards</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Any job/robbery/drug related major bug abuse</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Staff & Security -->
+        <div class="mb-20" data-aos="fade-up">
+          <h3 class="text-2xl font-bold text-red mb-8 pb-2 border-b border-red/30 flex items-center">
+            <i class="fas fa-user-shield mr-3 float-animation"></i>
+            STAFF & SECURITY
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Privacy Violations -->
+            <div class="rule-card bg-glass backdrop-blur-md p-6 rounded-xl border-t-4 border-red/50 h-full" data-aos="fade-up" data-aos-delay="100">
+              <div class="flex justify-between items-start mb-4">
+                <h4 class="text-lg font-semibold text-white">Privacy Violations</h4>
+                <span class="bg-red text-white px-2 py-1 rounded-full text-xs font-bold uppercase permanent-ban-tag">Permanent Ban</span>
+              </div>
+              <p class="text-gray-300 mb-4">Unauthorized access to player information or systems.</p>
+              <ul class="space-y-3 text-gray-300 text-sm">
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Checking another player's PC without staff authorization</li>
+                <li class="pl-5 relative before:content-['⚠️'] before:absolute before:left-0 hover:translate-x-1 transition-transform duration-300">Violations result in ban from both Discord and game</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Server Integrity Banner -->
+        <div class="bg-gradient-to-r from-red/20 to-dark-red/20 p-8 rounded-xl border border-red/30 text-center mb-16 red-glow" data-aos="fade-up">
+          <h3 class="text-2xl font-bold text-white mb-4 red-text-glow">SERVER INTEGRITY</h3>
+          <p class="text-xl text-gray-200">
+            These rules exist to maintain fair play and quality roleplay for all members. Permanent bans are irreversible.
+          </p>
+        </div>
+        
+        <!-- Report Button -->
+        <div class="text-center mb-16" data-aos="fade-up">
+          <a href="https://discord.gg/prpk" target="_blank" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-red to-dark-red text-white font-bold rounded-full hover:shadow-lg hover:shadow-red/30 transition-all duration-300 transform hover:scale-105 red-glow">
+            <i class="fas fa-flag mr-2"></i>
+            Report a Rule Violation
+          </a>
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <div class="flex flex-col sm:flex-row justify-between gap-4 mt-12" data-aos="fade-up">
+          <a href="basic-rules.html" class="px-6 py-3 bg-glass backdrop-blur-md border border-gold/30 text-white rounded-lg hover:bg-gold/20 transition-all duration-300 flex items-center justify-center group">
+            <i class="fas fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform"></i> Basic Rules
+          </a>
+          <a href="punishments.html" class="px-6 py-3 bg-gradient-to-r from-gold to-dark-gold text-black font-semibold rounded-lg hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 flex items-center justify-center group">
+            Punishments <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black py-8 border-t border-red/10 animated-bg">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <!-- Column 1 -->
+        <div data-aos="fade-up" data-aos-delay="100">
+          <a href="../index.html" class="text-2xl font-bold text-gold shine">PARADISE <span class="text-white">ROLEPLAY</span></a>
+          <p class="mt-4 text-gray-400">Experience the most immersive FiveM roleplay server with custom scripts, vehicles, and active community.</p>
+        </div>
+        
+        <!-- Column 2 -->
+        <div data-aos="fade-up" data-aos-delay="200">
+          <h4 class="text-white font-bold mb-4 text-glow">Navigation</h4>
+          <ul class="space-y-2">
+            <li><a href="../index.html" class="text-gray-400 hover:text-gold transition duration-300 hover:translate-x-1 inline-block">Home</a></li>
+            <li><a href="../about.html" class="text-gray-400 hover:text-gold transition duration-300 hover:translate-x-1 inline-block">About</a></li>
+            <li><a href="../server.html" class="text-gray-400 hover:text-gold transition duration-300 hover:translate-x-1 inline-block">Server</a></li>
+            <li><a href="../gallery.html" class="text-gray-400 hover:text-gold transition duration-300 hover:translate-x-1 inline-block">Gallery</a></li>
+            <li><a href="../contact.html" class="text-gray-400 hover:text-gold transition duration-300 hover:translate-x-1 inline-block">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 3 -->
+        <div data-aos="fade-up" data-aos-delay="300">
+          <h4 class="text-white font-bold mb-4 text-glow">Rules</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-gold transition duration-300 hover:translate-x-1 inline-block">Rules Hub</a></li>
+            <li><a href="basic-rules.html" class="text-gray-400 hover:text-gold transition duration-300 hover:translate-x-1 inline-block">Basic Rules</a></li>
+            <li><a href="major-rules.html" class="text-red transition duration-300 hover:translate-x-1 inline-block">Major Rules</a></li>
+            <li><a href="robbery-rules.html" class="text-gray-400 hover:text-gold transition duration-300 hover:translate-x-1 inline-block">Robbery Rules</a></li>
+            <li><a href="zones-rules.html" class="text-gray-400 hover:text-gold transition duration-300 hover:translate-x-1 inline-block">Zones Rules</a></li>
+            <li><a href="rivalry-rules.html" class="text-gray-400 hover:text-gold transition duration-300 hover:translate-x-1 inline-block">Rivalry Rules</a></li>
+            <li><a href="faction-rules.html" class="text-gray-400 hover:text-gold transition duration-300 hover:translate-x-1 inline-block">Faction Rules</a></li>
+            <li><a href="punishments.html" class="text-gray-400 hover:text-gold transition duration-300 hover:translate-x-1 inline-block">Punishments</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 4 -->
+        <div data-aos="fade-up" data-aos-delay="400">
+          <h4 class="text-white font-bold mb-4 text-glow">Connect</h4>
+          <div class="flex space-x-4">
+            <a href="https://discord.gg/prpk" target="_blank" class="group relative p-2 rounded-lg transition-all duration-300 hover:bg-[#5865F2]/10">
+              <i class="fab fa-discord text-xl text-gray-400 group-hover:text-[#5865F2] transition-all duration-300 group-hover:scale-125"></i>
+              <span class="absolute inset-0 rounded-lg bg-[#5865F2]/0 group-hover:bg-[#5865F2]/5 transition-colors duration-300"></span>
+            </a>
+            <a href="#" class="group relative p-2 rounded-lg transition-all duration-300 hover:bg-gradient-to-br hover:from-[#833AB4]/10 hover:via-[#FD1D1D]/10 hover:to-[#F77737]/10">
+              <i class="fab fa-instagram text-xl text-gray-400 group-hover:text-[#E1306C] transition-all duration-300 group-hover:scale-125"></i>
+              <span class="absolute inset-0 rounded-lg bg-gradient-to-br from-[#833AB4]/0 via-[#FD1D1D]/0 to-[#F77737]/0 group-hover:from-[#833AB4]/5 group-hover:via-[#FD1D1D]/5 group-hover:to-[#F77737]/5 transition-colors duration-300"></span>
+            </a>
+            <a href="#" class="group relative p-2 rounded-lg transition-all duration-300 hover:bg-[#FF0000]/10">
+              <i class="fab fa-youtube text-xl text-gray-400 group-hover:text-[#FF0000] transition-all duration-300 group-hover:scale-125"></i>
+              <span class="absolute inset-0 rounded-lg bg-[#FF0000]/0 group-hover:bg-[#FF0000]/5 transition-colors duration-300"></span>
+            </a>
+          </div>
+          <div class="mt-4">
+            <p class="text-gray-400">Server IP:</p>
+            <div class="flex items-center mt-1">
+              <code class="text-gold text-sm">play.eyesroleplay.com</code>
+              <button class="copy-ip ml-2 text-gray-400 hover:text-gold cursor-pointer">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Server Status -->
+          <div class="mt-6 p-3 bg-glass backdrop-blur-md rounded-lg border border-red/20 red-glow">
+            <div class="flex items-center justify-between">
+              <span class="text-gray-300 text-sm">Server Status:</span>
+              <span class="flex items-center">
+                <span class="inline-block w-3 h-3 bg-green rounded-full mr-2 animate-pulse"></span>
+                <span class="text-green text-sm font-semibold">Online</span>
+              </span>
+            </div>
+            <div class="mt-2 text-xs text-gray-400">
+              <span>Players: <span class="text-red">128</span>/128</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <hr class="border-gray-800 my-6">
+      
+      <div class="text-center text-gray-500 text-sm">
+        <p>&copy; 2025 PARADISE ROLEPLAY. All rights reserved.</p>
+        <p class="mt-2">Not affiliated with Rockstar Games, Inc. or Take-Two Interactive Software, Inc.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true
+    });
+    
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('animate-slide-up');
+        }
+      });
+    }
+    
+    // Copy IP functionality
+    const copyIpButtons = document.querySelectorAll('.copy-ip');
+    copyIpButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const ip = 'play.eyesroleplay.com';
+        navigator.clipboard.writeText(ip).then(() => {
+          const icon = button.querySelector('i');
+          icon.classList.remove('fa-copy');
+          icon.classList.add('fa-check');
+          setTimeout(() => {
+            icon.classList.remove('fa-check');
+            icon.classList.add('fa-copy');
+          }, 2000);
+        });
+      });
+    });
+    
+    // Create particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 30;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random position
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        particle.style.left = `${posX}%`;
+        particle.style.top = `${posY}%`;
+        
+        // Random size
+        const size = Math.random() * 3 + 1;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Random animation duration
+        const duration = Math.random() * 20 + 10;
+        particle.style.animationDuration = `${duration}s`;
+        
+        // Random animation delay
+        const delay = Math.random() * 10;
+        particle.style.animationDelay = `${delay}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+    
+    // Initialize everything when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      createParticles();
+    });
+  </script>
+</body>
+</html>
