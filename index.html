@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>PARADISE ROLEPLAY | Premium Roleplay Experience</title>
     <link rel="icon" type="image/x-icon" href="https://r2.fivemanage.com/52eJuqoGTwb7xhUEC0or9/PRP_Logo_No_BG.png">
     <meta name="description" content="Experience the ultimate FiveM roleplay server with realistic gameplay, custom cars, jobs, and more."/>
@@ -109,6 +109,17 @@
             background-image: url('assets/img/bg-pattern.png');
             background-attachment: fixed;
             overflow-x: hidden;
+        }
+        
+        /* Mobile viewport fix */
+        html {
+            height: 100%;
+            height: -webkit-fill-available;
+        }
+        
+        body {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
         }
         
         /* Advanced Particle System */
@@ -281,19 +292,48 @@
             animation: gradientShift 15s ease infinite;
         }
         
-        /* Video Container Enhancements */
+        /* Enhanced Video Container for Mobile */
         .hero-video-container {
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             overflow: hidden;
         }
         
-        .hero-video-container::before {
-            content: '';
+        .hero-video-container iframe {
             position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, transparent 20%, rgba(255, 215, 0, 0.05) 80%);
-            z-index: 1;
-            animation: hologram 4s ease-in-out infinite;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw; /* 16:9 aspect ratio */
+            min-height: 100vh;
+            min-width: 177.77vh; /* 16:9 aspect ratio */
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        
+        /* Mobile-specific video background */
+        @media (max-width: 768px) {
+            .hero-video-container {
+                background: linear-gradient(135deg, #121212 0%, #1a1a1a 50%, #0f0f0f 100%);
+            }
+            
+            .hero-video-container iframe {
+                display: none; /* Hide video on mobile for better performance */
+            }
+            
+            .hero-video-container::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: 
+                    radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                    linear-gradient(135deg, #121212 0%, #1a1a1a 50%, #0f0f0f 100%);
+                animation: hologram 4s ease-in-out infinite;
+            }
         }
         
         /* Stats Animation */
@@ -536,6 +576,40 @@
             .feature-card::before {
                 display: none;
             }
+            
+            .card-3d:hover {
+                transform: none;
+            }
+            
+            .typewriter {
+                white-space: normal;
+                border-right: none;
+                animation: none;
+            }
+            
+            .glitch::before,
+            .glitch::after {
+                display: none;
+            }
+            
+            /* Mobile button improvements */
+            .mobile-button {
+                min-height: 48px;
+                touch-action: manipulation;
+            }
+            
+            /* Mobile logo sizing */
+            .mobile-logo {
+                width: 80px !important;
+                height: 80px !important;
+            }
+        }
+        
+        /* iOS Safari specific fixes */
+        @supports (-webkit-touch-callout: none) {
+            .hero-section {
+                min-height: -webkit-fill-available;
+            }
         }
     </style>
 </head>
@@ -562,7 +636,7 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
-                    <a href="index.html" class="text-2xl font-bold flex items-center gap-1 shine glow-text">
+                    <a href="index.html" class="text-xl md:text-2xl font-bold flex items-center gap-1 shine glow-text">
                         <span class="text-gold animate-glow font-orbitron">PARADISE</span> 
                         <span class="text-white font-orbitron">ROLEPLAY</span>
                     </a>
@@ -588,7 +662,7 @@
                     </div>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-white hover:text-gold focus:outline-none p-2 transition-transform hover:scale-110">
+                    <button id="mobile-menu-button" class="text-white hover:text-gold focus:outline-none p-2 transition-transform hover:scale-110 mobile-button">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -597,22 +671,21 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-glass backdrop-blur-md border-t border-gold/10 p-4 animate-slide-up">
             <div class="flex flex-col space-y-2">
-                <a href="index.html" class="text-gold py-2 px-3 rounded bg-black/30 transition duration-300">Home</a>
-                <a href="about.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">About</a>
-                <a href="staff.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Staff</a>
-                <a href="gangs.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Gangs</a>
-                <a href="join.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Join</a>
+                <a href="index.html" class="text-gold py-3 px-3 rounded bg-black/30 transition duration-300 mobile-button">Home</a>
+                <a href="about.html" class="text-white hover:text-gold py-3 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1 mobile-button">About</a>
+                <a href="staff.html" class="text-white hover:text-gold py-3 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1 mobile-button">Staff</a>
+                <a href="gangs.html" class="text-white hover:text-gold py-3 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1 mobile-button">Gangs</a>
+                <a href="join.html" class="text-white hover:text-gold py-3 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1 mobile-button">Join</a>
             </div>
         </div>
     </nav>
 
     <!-- Enhanced Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
         <!-- Enhanced Video Background -->
         <div class="absolute inset-0 z-0">
-            <div class="hero-video-container absolute inset-0">
+            <div class="hero-video-container">
                 <iframe 
-                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[200vw] h-[200vh] pointer-events-none"
                     src="https://www.youtube.com/embed/KWAHGy_eee4?autoplay=1&mute=1&controls=0&loop=1&playlist=KWAHGy_eee4&modestbranding=1&rel=0&start=0&enablejsapi=1&version=3&playerapiid=ytplayer" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -632,7 +705,7 @@
         <!-- Hero Content -->
         <div class="container mx-auto px-4 relative z-10 text-center">
             <!-- Logo for Mobile -->
-            <div class="md:hidden w-24 h-24 mx-auto mb-8 relative" data-aos="zoom-in">
+            <div class="md:hidden mobile-logo w-20 h-20 mx-auto mb-6 relative" data-aos="zoom-in">
                 <div class="absolute inset-0 bg-gold rounded-full opacity-20 animate-pulse-slow"></div>
                 <img src="https://r2.fivemanage.com/52eJuqoGTwb7xhUEC0or9/PRP_Logo_No_BG.png" 
                      alt="Paradise RP Logo" 
@@ -641,7 +714,7 @@
             
             <!-- Enhanced Title -->
             <div data-aos="fade-down" data-aos-duration="1000">
-                <h1 class="text-4xl md:text-7xl font-bold mb-6 tracking-wider font-orbitron">
+                <h1 class="text-3xl md:text-7xl font-bold mb-6 tracking-wider font-orbitron">
                     <span class="glitch text-gold glow-text animate-text-glow inline-block transform hover:scale-105 transition-transform duration-300" 
                           data-text="PARADISE">PARADISE</span>
                     <br>
@@ -649,74 +722,74 @@
                 </h1>
             </div>
             
-            <!-- Enhanced Description with Typewriter Effect -->
-            <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 typewriter" 
+            <!-- Enhanced Description -->
+            <p class="text-lg md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 px-4" 
                data-aos="fade-up" data-aos-delay="200">
                 Experience the Ultimate FiveM Roleplay Server
             </p>
             
             <!-- Enhanced Action Buttons -->
-            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-12" data-aos="fade-up" data-aos-delay="400">
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8 px-4" data-aos="fade-up" data-aos-delay="400">
                 <a href="join.html" 
-                   class="card-3d px-8 py-4 bg-gradient-to-r from-gold to-dark-gold text-black font-bold rounded-lg hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 flex items-center justify-center group neon-pulse">
+                   class="card-3d px-6 py-4 bg-gradient-to-r from-gold to-dark-gold text-black font-bold rounded-lg hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 flex items-center justify-center group neon-pulse mobile-button">
                     <i class="fas fa-play mr-2 group-hover:scale-110 transition-transform"></i>
                     Join Server
                 </a>
                 <a href="about.html" 
-                   class="card-3d px-8 py-4 bg-glass backdrop-blur-md border border-gold/30 text-white rounded-lg hover:bg-gold/20 transition-all duration-300 flex items-center justify-center group">
+                   class="card-3d px-6 py-4 bg-glass backdrop-blur-md border border-gold/30 text-white rounded-lg hover:bg-gold/20 transition-all duration-300 flex items-center justify-center group mobile-button">
                     <i class="fas fa-info-circle mr-2 group-hover:translate-x-1 transition-transform"></i>
                     Learn More
                 </a>
             </div>
 
             <!-- Enhanced Stats Dashboard -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="600">
-                <div class="holographic p-6 rounded-xl text-center card-3d animate-card-float">
-                    <div class="text-3xl font-bold text-gold pulse-ring mb-2">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-8 px-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="holographic p-4 md:p-6 rounded-xl text-center card-3d animate-card-float">
+                    <div class="text-2xl md:text-3xl font-bold text-gold pulse-ring mb-2">
                         <span class="stat-counter">100</span>+
                     </div>
-                    <p class="text-gray-400 text-sm">Daily Active Players</p>
+                    <p class="text-gray-400 text-xs md:text-sm">Daily Active Players</p>
                     <div class="loading-bar mt-2"></div>
                 </div>
-                <div class="holographic p-6 rounded-xl text-center card-3d animate-card-float" style="animation-delay: 0.5s;">
-                    <div class="text-3xl font-bold text-gold pulse-ring mb-2">24/7</div>
-                    <p class="text-gray-400 text-sm">Server Uptime</p>
+                <div class="holographic p-4 md:p-6 rounded-xl text-center card-3d animate-card-float" style="animation-delay: 0.5s;">
+                    <div class="text-2xl md:text-3xl font-bold text-gold pulse-ring mb-2">24/7</div>
+                    <p class="text-gray-400 text-xs md:text-sm">Server Uptime</p>
                     <div class="loading-bar mt-2"></div>
                 </div>
-                <div class="holographic p-6 rounded-xl text-center card-3d animate-card-float" style="animation-delay: 1s;">
-                    <div class="text-3xl font-bold text-gold pulse-ring mb-2">
+                <div class="holographic p-4 md:p-6 rounded-xl text-center card-3d animate-card-float" style="animation-delay: 1s;">
+                    <div class="text-2xl md:text-3xl font-bold text-gold pulse-ring mb-2">
                         <span class="stat-counter">12</span>+
                     </div>
-                    <p class="text-gray-400 text-sm">Active Gangs</p>
+                    <p class="text-gray-400 text-xs md:text-sm">Active Gangs</p>
                     <div class="loading-bar mt-2"></div>
                 </div>
-                <div class="holographic p-6 rounded-xl text-center card-3d animate-card-float" style="animation-delay: 1.5s;">
-                    <div class="text-3xl font-bold text-gold pulse-ring mb-2">
+                <div class="holographic p-4 md:p-6 rounded-xl text-center card-3d animate-card-float" style="animation-delay: 1.5s;">
+                    <div class="text-2xl md:text-3xl font-bold text-gold pulse-ring mb-2">
                         <span class="stat-counter">20</span>+
                     </div>
-                    <p class="text-gray-400 text-sm">Content Creators</p>
+                    <p class="text-gray-400 text-xs md:text-sm">Content Creators</p>
                     <div class="loading-bar mt-2"></div>
                 </div>
             </div>
 
             <!-- Social Media for Mobile -->
-            <div class="md:hidden flex justify-center gap-6 mb-8" data-aos="fade-up" data-aos-delay="800">
+            <div class="md:hidden flex justify-center gap-4 mb-6 px-4" data-aos="fade-up" data-aos-delay="800">
                 <a href="https://discord.gg/prpk" target="_blank" 
-                   class="w-12 h-12 bg-discord/20 rounded-full flex items-center justify-center hover:bg-discord/30 transition-all duration-300 hover:scale-110 pulse-ring">
+                   class="w-12 h-12 bg-discord/20 rounded-full flex items-center justify-center hover:bg-discord/30 transition-all duration-300 hover:scale-110 pulse-ring mobile-button">
                     <i class="fab fa-discord text-discord text-xl"></i>
                 </a>
                 <a href="https://www.youtube.com/@paradiseroleplaypk" target="_blank" 
-                   class="w-12 h-12 bg-red/20 rounded-full flex items-center justify-center hover:bg-red/30 transition-all duration-300 hover:scale-110 pulse-ring">
+                   class="w-12 h-12 bg-red/20 rounded-full flex items-center justify-center hover:bg-red/30 transition-all duration-300 hover:scale-110 pulse-ring mobile-button">
                     <i class="fab fa-youtube text-red text-xl"></i>
                 </a>
-                <a href="https://www.youtube.com/@paradiseroleplaypk" target="_blank" 
-                   class="w-12 h-12 bg-red/20 rounded-full flex items-center justify-center hover:bg-red/30 transition-all duration-300 hover:scale-110 pulse-ring">
-                    <i class="fab fa-youtube text-red text-xl"></i>
+                <a href="https://www.instagram.com/theparadisehug/" target="_blank" 
+                   class="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full flex items-center justify-center hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 hover:scale-110 pulse-ring mobile-button">
+                    <i class="fab fa-instagram text-pink-400 text-xl"></i>
                 </a>
             </div>
 
             <!-- Copyright -->
-            <div class="animate-bounce mt-8" data-aos="fade-up" data-aos-delay="1000">
+            <div class="animate-bounce mt-6 px-4" data-aos="fade-up" data-aos-delay="1000">
                 <p class="text-gray-400 text-sm">
                     <span class="text-gold glow-text">Copyright by</span>
                     <span class="text-white font-semibold"> Paradise RP</span>
@@ -732,8 +805,8 @@
         </div>
     </section>
 
-    <!-- Fixed Side Elements -->
-    <div class="hidden md:block fixed left-6 top-1/2 transform -translate-y-1/2 z-40">
+    <!-- Fixed Side Elements (Desktop Only) -->
+    <div class="hidden lg:block fixed left-6 top-1/2 transform -translate-y-1/2 z-40">
         <!-- Logo -->
         <div class="mb-8 relative">
             <div class="w-16 h-16 bg-glass backdrop-blur-md rounded-full border border-gold/30 flex items-center justify-center neon-border pulse-ring">
@@ -753,15 +826,15 @@
                class="w-12 h-12 bg-red/20 rounded-full flex items-center justify-center hover:bg-red/30 transition-all duration-300 hover:scale-110 pulse-ring">
                 <i class="fab fa-youtube text-red"></i>
             </a>
-             <a href="https://www.instagram.com/theparadisehug/" target="_blank"
-            <a href="#" class="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full flex items-center justify-center hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 hover:scale-110 pulse-ring">
+            <a href="https://www.instagram.com/theparadisehug/" target="_blank"
+               class="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full flex items-center justify-center hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 hover:scale-110 pulse-ring">
                 <i class="fab fa-instagram text-pink-400"></i>
             </a>
         </div>
     </div>
 
-    <!-- Scroll Buttons -->
-    <div class="hidden md:block fixed right-6 bottom-24 z-40">
+    <!-- Scroll Buttons (Desktop Only) -->
+    <div class="hidden lg:block fixed right-6 bottom-24 z-40">
         <button id="scrollToTop" class="w-12 h-12 bg-glass backdrop-blur-md rounded-full flex items-center justify-center hover:bg-gold/20 transition-all duration-300 mb-4 opacity-0 neon-border">
             <i class="fas fa-chevron-up text-gold"></i>
         </button>
@@ -771,103 +844,103 @@
     </div>
 
     <!-- Enhanced Features Section -->
-    <section class="py-20 relative">
+    <section class="py-16 md:py-20 relative">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 font-orbitron">
+            <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 font-orbitron">
                     <span class="text-gold glow-text">Server Features</span>
                 </h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-gold to-dark-gold mx-auto rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
                 <!-- Feature Card 1 -->
-                <div class="feature-card holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card holographic p-6 md:p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="100">
                     <div class="text-center mb-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
                             <i class="fas fa-user-tie text-3xl text-gold"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-4 glow-text">Immersive Roleplay</h3>
-                        <p class="text-gray-300 leading-relaxed">Experience realistic roleplay with custom interaction systems, detailed character development, and engaging storylines that evolve with the community.</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-4 glow-text">Immersive Roleplay</h3>
+                        <p class="text-gray-300 leading-relaxed text-sm md:text-base">Experience realistic roleplay with custom interaction systems, detailed character development, and engaging storylines that evolve with the community.</p>
                     </div>
                     <div class="flex flex-wrap gap-2 justify-center">
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Premium</span>
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Customized</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">Premium</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">Customized</span>
                     </div>
                 </div>
 
                 <!-- Feature Card 2 -->
-                <div class="feature-card holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card holographic p-6 md:p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="200">
                     <div class="text-center mb-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
                             <i class="fas fa-car text-3xl text-gold"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-4 glow-text">Custom Vehicles</h3>
-                        <p class="text-gray-300 leading-relaxed">Explore our extensive collection of high-quality custom vehicles with unique modifications, realistic handling, and immersive sound effects.</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-4 glow-text">Custom Vehicles</h3>
+                        <p class="text-gray-300 leading-relaxed text-sm md:text-base">Explore our extensive collection of high-quality custom vehicles with unique modifications, realistic handling, and immersive sound effects.</p>
                     </div>
                     <div class="flex flex-wrap gap-2 justify-center">
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Custom Sound</span>
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Quality</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">Custom Sound</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">Quality</span>
                     </div>
                 </div>
 
                 <!-- Feature Card 3 -->
-                <div class="feature-card holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card holographic p-6 md:p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="300">
                     <div class="text-center mb-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
                             <i class="fas fa-user-shield text-3xl text-gold"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-4 glow-text">Active Staff</h3>
-                        <p class="text-gray-300 leading-relaxed">Our dedicated team ensures a fair and enjoyable experience for all players with 24/7 support, professional moderation, and community events.</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-4 glow-text">Active Staff</h3>
+                        <p class="text-gray-300 leading-relaxed text-sm md:text-base">Our dedicated team ensures a fair and enjoyable experience for all players with 24/7 support, professional moderation, and community events.</p>
                     </div>
                     <div class="flex flex-wrap gap-2 justify-center">
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Professional</span>
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">24/7</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">Professional</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">24/7</span>
                     </div>
                 </div>
 
                 <!-- Feature Card 4 -->
-                <div class="feature-card holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-card holographic p-6 md:p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="400">
                     <div class="text-center mb-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
                             <i class="fas fa-city text-3xl text-gold"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-4 glow-text">Custom Map</h3>
-                        <p class="text-gray-300 leading-relaxed">Explore our enhanced Los Santos with custom interiors, exclusive locations, hidden areas, and interactive environments designed for immersive roleplay.</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-4 glow-text">Custom Map</h3>
+                        <p class="text-gray-300 leading-relaxed text-sm md:text-base">Explore our enhanced Los Santos with custom interiors, exclusive locations, hidden areas, and interactive environments designed for immersive roleplay.</p>
                     </div>
                     <div class="flex flex-wrap gap-2 justify-center">
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Enhanced</span>
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Interactive</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">Enhanced</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">Interactive</span>
                     </div>
                 </div>
 
                 <!-- Feature Card 5 -->
-                <div class="feature-card holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-card holographic p-6 md:p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="500">
                     <div class="text-center mb-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
                             <i class="fas fa-briefcase text-3xl text-gold"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-4 glow-text">Diverse Jobs</h3>
-                        <p class="text-gray-300 leading-relaxed">Choose from a wide variety of legal and illegal professions, each with unique mechanics, progression systems, and roleplay opportunities.</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-4 glow-text">Diverse Jobs</h3>
+                        <p class="text-gray-300 leading-relaxed text-sm md:text-base">Choose from a wide variety of legal and illegal professions, each with unique mechanics, progression systems, and roleplay opportunities.</p>
                     </div>
                     <div class="flex flex-wrap gap-2 justify-center">
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Variety</span>
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Progression</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">Variety</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">Progression</span>
                     </div>
                 </div>
 
                 <!-- Feature Card 6 -->
-                <div class="feature-card holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-card holographic p-6 md:p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="600">
                     <div class="text-center mb-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
                             <i class="fas fa-users text-3xl text-gold"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-4 glow-text">Active Community</h3>
-                        <p class="text-gray-300 leading-relaxed">Join a vibrant community of passionate roleplayers, participate in events, build relationships, and create unforgettable stories together.</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-4 glow-text">Active Community</h3>
+                        <p class="text-gray-300 leading-relaxed text-sm md:text-base">Join a vibrant community of passionate roleplayers, participate in events, build relationships, and create unforgettable stories together.</p>
                     </div>
                     <div class="flex flex-wrap gap-2 justify-center">
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Vibrant</span>
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Events</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">Vibrant</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">Events</span>
                     </div>
                 </div>
             </div>
@@ -875,29 +948,29 @@
     </section>
 
     <!-- Enhanced Quick Access Section -->
-    <section class="py-20 relative">
+    <section class="py-16 md:py-20 relative">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 font-orbitron">
+            <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 font-orbitron">
                     <span class="text-gold glow-text">Quick Access</span>
                 </h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-gold to-dark-gold mx-auto rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
                 <!-- Connection Card -->
-                <div class="holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="100">
+                <div class="holographic p-6 md:p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="100">
                     <div class="text-center mb-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
                             <i class="fas fa-server text-3xl text-gold"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-6 glow-text">Server Connection</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-6 glow-text">Server Connection</h3>
                     </div>
                     
                     <div class="holographic p-4 rounded-lg mb-6 border border-gold/30">
                         <div class="flex items-center justify-between">
-                            <code class="text-gold font-mono text-sm">cfx.re/join/mrlr8v</code>
-                            <button id="copy-ip" class="text-white hover:text-gold transition-colors p-2">
+                            <code class="text-gold font-mono text-xs md:text-sm break-all">cfx.re/join/q33xb4</code>
+                            <button id="copy-ip" class="text-white hover:text-gold transition-colors p-2 mobile-button">
                                 <i class="fas fa-copy"></i>
                             </button>
                         </div>
@@ -908,28 +981,28 @@
                             <div class="w-3 h-3 bg-green rounded-full animate-pulse"></div>
                             <span class="text-green font-semibold">Server Online</span>
                         </div>
-                        <a href="join.html" class="inline-flex items-center text-gold hover:text-white transition-colors">
+                        <a href="join.html" class="inline-flex items-center text-gold hover:text-white transition-colors mobile-button">
                             Connect Now <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Discord Card -->
-                <div class="holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="200">
+                <div class="holographic p-6 md:p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="200">
                     <div class="text-center mb-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-discord/20 to-discord/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
                             <i class="fab fa-discord text-3xl text-discord"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-6 glow-text">Join Discord</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-6 glow-text">Join Discord</h3>
                     </div>
                     
-                    <p class="text-gray-300 text-center mb-6 leading-relaxed">
+                    <p class="text-gray-300 text-center mb-6 leading-relaxed text-sm md:text-base">
                         Connect with our community, get support, participate in events, and stay updated with the latest news.
                     </p>
                     
                     <div class="text-center">
                         <a href="https://discord.gg/prpk" target="_blank" 
-                           class="inline-flex items-center px-6 py-3 bg-discord/20 hover:bg-discord/30 text-discord border border-discord/30 rounded-lg transition-all duration-300 group">
+                           class="inline-flex items-center px-6 py-3 bg-discord/20 hover:bg-discord/30 text-discord border border-discord/30 rounded-lg transition-all duration-300 group mobile-button">
                             <i class="fab fa-discord mr-2 group-hover:scale-110 transition-transform"></i>
                             Join Server
                         </a>
@@ -937,31 +1010,29 @@
                 </div>
 
                 <!-- Server Status Card -->
-                <div class="holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="300">
+                <div class="holographic p-6 md:p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="300">
                     <div class="text-center mb-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-green/20 to-green/40 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
                             <i class="fas fa-signal text-3xl text-green"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-6 glow-text">Server Status</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-6 glow-text">Server Status</h3>
                     </div>
                     
                     <div class="grid grid-cols-2 gap-4 mb-6">
                         <div class="holographic p-4 rounded-lg text-center">
-                            <div class="text-2xl font-bold text-gold mb-2">
-                                
+                            <div class="flex items-center justify-center gap-2 mb-2">
+                                <div class="w-3 h-3 bg-green rounded-full animate-pulse"></div>
+                                <span class="text-green font-semibold text-sm">Online</span>
                             </div>
-                             <div class="w3reen rounded-full animate-pulse"></div>
-                            <span class="text-green font-semibold">Online</span>
-                            
                         </div>
                         <div class="holographic p-4 rounded-lg text-center">
-                            <div class="text-2xl font-bold text-gold mb-2">99.9%</div>
-                            <p class="text-gray-400 text-sm">Uptime</p>
+                            <div class="text-xl md:text-2xl font-bold text-gold mb-2">99.9%</div>
+                            <p class="text-gray-400 text-xs md:text-sm">Uptime</p>
                         </div>
                     </div>
                     
                     <div class="text-center">
-                        <a href="server.html" class="inline-flex items-center text-gold hover:text-white transition-colors">
+                        <a href="#" class="inline-flex items-center text-gold hover:text-white transition-colors mobile-button">
                             View Details <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
@@ -971,18 +1042,18 @@
     </section>
 
     <!-- Enhanced Recent Updates Section -->
-    <section class="py-20 relative">
+    <section class="py-16 md:py-20 relative">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 font-orbitron">
+            <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 font-orbitron">
                     <span class="text-gold glow-text">Recent Updates</span>
                 </h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-gold to-dark-gold mx-auto rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
                 <!-- Update Card 1 -->
-                <div class="holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="100">
+                <div class="holographic p-6 md:p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex items-start justify-between mb-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center pulse-ring">
                             <i class="fas fa-car-side text-3xl text-gold"></i>
@@ -993,17 +1064,17 @@
                         </div>
                     </div>
                     
-                    <h3 class="text-2xl font-bold text-white mb-4 glow-text">New Vehicle Pack</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-4 glow-text">New Vehicle Pack</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed text-sm md:text-base">
                         We've added 15 new custom vehicles including BMW M8 Competition 2020, Mercedes-AMG GT 63S 2023, and more premium vehicles with realistic handling.
                     </p>
                     
                     <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">New Content</span>
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Vehicles</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">New Content</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">Vehicles</span>
                     </div>
                     
-                    <button class="read-more-btn w-full p-3 holographic rounded-lg border border-gold/30 text-gold hover:text-white transition-colors">
+                    <button class="read-more-btn w-full p-3 holographic rounded-lg border border-gold/30 text-gold hover:text-white transition-colors mobile-button">
                         <span>Read More</span>
                         <i class="fas fa-chevron-down ml-2 transition-transform"></i>
                     </button>
@@ -1032,7 +1103,7 @@
                 </div>
 
                 <!-- Update Card 2 -->
-                <div class="holographic p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="200">
+                <div class="holographic p-6 md:p-8 rounded-xl card-3d animate-card-float" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex items-start justify-between mb-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/40 rounded-full flex items-center justify-center pulse-ring">
                             <i class="fas fa-map-marked-alt text-3xl text-gold"></i>
@@ -1043,17 +1114,17 @@
                         </div>
                     </div>
                     
-                    <h3 class="text-2xl font-bold text-white mb-4 glow-text">Map Expansion</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-4 glow-text">Map Expansion</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed text-sm md:text-base">
                         New areas added including luxury shopping mall, underground parking complex, residential district, and multiple entertainment zones.
                     </p>
                     
                     <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Map Update</span>
-                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm border border-gold/30">Locations</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">Map Update</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-xs border border-gold/30">Locations</span>
                     </div>
                     
-                    <button class="read-more-btn w-full p-3 holographic rounded-lg border border-gold/30 text-gold hover:text-white transition-colors">
+                    <button class="read-more-btn w-full p-3 holographic rounded-lg border border-gold/30 text-gold hover:text-white transition-colors mobile-button">
                         <span>Read More</span>
                         <i class="fas fa-chevron-down ml-2 transition-transform"></i>
                     </button>
@@ -1085,7 +1156,7 @@
     </section>
 
     <!-- Enhanced CTA Section -->
-    <section class="py-20 relative overflow-hidden">
+    <section class="py-16 md:py-20 relative overflow-hidden">
         <div class="absolute inset-0">
             <div class="w-96 h-96 absolute top-1/4 left-1/4 opacity-10 bg-gold rounded-full blur-3xl animate-pulse-slow"></div>
             <div class="w-96 h-96 absolute bottom-1/4 right-1/4 opacity-10 bg-gold rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
@@ -1093,22 +1164,22 @@
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-                <div class="holographic p-12 rounded-xl card-3d animate-card-float">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6 font-orbitron">
+                <div class="holographic p-8 md:p-12 rounded-xl card-3d animate-card-float">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6 font-orbitron">
                         Ready to Start Your <span class="text-gold glow-text">Adventure?</span>
                     </h2>
-                    <p class="text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
                         Join thousands of players in the most immersive FiveM roleplay experience. Create your character, build your story, and become part of our thriving community.
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row justify-center gap-6 mb-8">
+                    <div class="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 mb-8">
                         <a href="join.html" 
-                           class="card-3d px-8 py-4 bg-gradient-to-r from-gold to-dark-gold text-black font-bold rounded-lg hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 flex items-center justify-center group neon-pulse">
+                           class="card-3d px-6 md:px-8 py-4 bg-gradient-to-r from-gold to-dark-gold text-black font-bold rounded-lg hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 flex items-center justify-center group neon-pulse mobile-button">
                             <i class="fas fa-gamepad mr-2 group-hover:scale-110 transition-transform"></i>
                             Join Server Now
                         </a>
                         <a href="https://discord.gg/prpk" target="_blank" 
-                           class="card-3d px-8 py-4 bg-discord/20 border border-discord/30 text-discord rounded-lg hover:bg-discord/30 transition-all duration-300 flex items-center justify-center group">
+                           class="card-3d px-6 md:px-8 py-4 bg-discord/20 border border-discord/30 text-discord rounded-lg hover:bg-discord/30 transition-all duration-300 flex items-center justify-center group mobile-button">
                             <i class="fab fa-discord mr-2 group-hover:scale-110 transition-transform"></i>
                             Join Discord
                         </a>
@@ -1124,28 +1195,28 @@
     </section>
 
     <!-- Enhanced Footer -->
-    <footer class="bg-black/50 backdrop-blur-md py-16 border-t border-gold/20">
+    <footer class="bg-black/50 backdrop-blur-md py-12 md:py-16 border-t border-gold/20">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-12">
                 <!-- Column 1 -->
                 <div data-aos="fade-up" data-aos-delay="100">
-                    <a href="index.html" class="text-2xl font-bold text-gold shine glow-text font-orbitron">
+                    <a href="index.html" class="text-xl md:text-2xl font-bold text-gold shine glow-text font-orbitron">
                         PARADISE <span class="text-white">ROLEPLAY</span>
                     </a>
-                    <p class="mt-4 text-gray-400 leading-relaxed">
+                    <p class="mt-4 text-gray-400 leading-relaxed text-sm md:text-base">
                         Experience the most immersive FiveM roleplay server with custom scripts, vehicles, and an active community of passionate players.
                     </p>
                     <div class="flex space-x-4 mt-6">
                         <a href="https://discord.gg/prpk" target="_blank" 
-                           class="w-10 h-10 bg-discord/20 rounded-lg flex items-center justify-center hover:bg-discord/30 transition-all duration-300 hover:scale-110">
+                           class="w-10 h-10 bg-discord/20 rounded-lg flex items-center justify-center hover:bg-discord/30 transition-all duration-300 hover:scale-110 mobile-button">
                             <i class="fab fa-discord text-discord"></i>
                         </a>
                         <a href="https://www.youtube.com/@paradiseroleplaypk" target="_blank" 
-                           class="w-10 h-10 bg-red/20 rounded-lg flex items-center justify-center hover:bg-red/30 transition-all duration-300 hover:scale-110">
+                           class="w-10 h-10 bg-red/20 rounded-lg flex items-center justify-center hover:bg-red/30 transition-all duration-300 hover:scale-110 mobile-button">
                             <i class="fab fa-youtube text-red"></i>
                         </a>
                         <a href="https://www.instagram.com/theparadisehug/" target="_blank"
-                        <a href="#" class="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg flex items-center justify-center hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 hover:scale-110">
+                           class="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg flex items-center justify-center hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 hover:scale-110 mobile-button">
                             <i class="fab fa-instagram text-pink-400"></i>
                         </a>
                     </div>
@@ -1155,12 +1226,12 @@
                 <div data-aos="fade-up" data-aos-delay="200">
                     <h4 class="text-white font-bold mb-6 text-lg glow-text">Navigation</h4>
                     <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-home w-4 mr-2"></i>Home</a></li>
-                        <li><a href="about.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-info-circle w-4 mr-2"></i>About</a></li>
-                        <li><a href="staff.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-users w-4 mr-2"></i>Staff</a></li>
-                        <li><a href="gangs.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-skull w-4 mr-2"></i>Gangs</a></li>
-                        <li><a href="wall-of-fame.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-skull w-4 mr-2"></i>Wall of Fame</a></li>
-                        <li><a href="wall-of-fame.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-skull w-4 mr-2"></i>Rules Hub</a></li>
+                        <li><a href="index.html" class="text-gray-400 hover:text-gold transition-colors flex items-center text-sm md:text-base mobile-button"><i class="fas fa-home w-4 mr-2"></i>Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-gold transition-colors flex items-center text-sm md:text-base mobile-button"><i class="fas fa-info-circle w-4 mr-2"></i>About</a></li>
+                        <li><a href="staff.html" class="text-gray-400 hover:text-gold transition-colors flex items-center text-sm md:text-base mobile-button"><i class="fas fa-users w-4 mr-2"></i>Staff</a></li>
+                        <li><a href="gangs.html" class="text-gray-400 hover:text-gold transition-colors flex items-center text-sm md:text-base mobile-button"><i class="fas fa-skull w-4 mr-2"></i>Gangs</a></li>
+                        <li><a href="wall-of-fame.html" class="text-gray-400 hover:text-gold transition-colors flex items-center text-sm md:text-base mobile-button"><i class="fas fa-trophy w-4 mr-2"></i>Wall of Fame</a></li>
+                        <li><a href="rules/index.html" class="text-gray-400 hover:text-gold transition-colors flex items-center text-sm md:text-base mobile-button"><i class="fas fa-book w-4 mr-2"></i>Rules Hub</a></li>
                     </ul>
                 </div>
                 
@@ -1168,11 +1239,11 @@
                 <div data-aos="fade-up" data-aos-delay="300">
                     <h4 class="text-white font-bold mb-6 text-lg glow-text">Server Info</h4>
                     <ul class="space-y-3">
-                        <li><a href="join.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-play w-4 mr-2"></i>How to Join</a></li>
-                        <li><a href="rules/index.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-book w-4 mr-2"></i>Server Rules</a></li>
-                        <li><a href="wall-of-fame.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-trophy w-4 mr-2"></i>Wall of Fame</a></li>
-                        <li><span class="text-gray-400 flex items-center"><i class="fas fa-users w-4 mr-2"></i>28000+ Members</li>
-                        <li><span class="text-gray-400 flex items-center"><i class="fas fa-clock w-4 mr-2"></i>24/7 Online</span></li>
+                        <li><a href="join.html" class="text-gray-400 hover:text-gold transition-colors flex items-center text-sm md:text-base mobile-button"><i class="fas fa-play w-4 mr-2"></i>How to Join</a></li>
+                        <li><a href="rules/index.html" class="text-gray-400 hover:text-gold transition-colors flex items-center text-sm md:text-base mobile-button"><i class="fas fa-book w-4 mr-2"></i>Server Rules</a></li>
+                        <li><a href="wall-of-fame.html" class="text-gray-400 hover:text-gold transition-colors flex items-center text-sm md:text-base mobile-button"><i class="fas fa-trophy w-4 mr-2"></i>Wall of Fame</a></li>
+                        <li><span class="text-gray-400 flex items-center text-sm md:text-base"><i class="fas fa-users w-4 mr-2"></i>28000+ Members</span></li>
+                        <li><span class="text-gray-400 flex items-center text-sm md:text-base"><i class="fas fa-clock w-4 mr-2"></i>24/7 Online</span></li>
                     </ul>
                 </div>
                 
@@ -1181,28 +1252,28 @@
                     <h4 class="text-white font-bold mb-6 text-lg glow-text">Connect</h4>
                     <div class="space-y-4">
                         <div>
-                            <p class="text-gray-400 mb-2">Server IP:</p>
+                            <p class="text-gray-400 mb-2 text-sm md:text-base">Server IP:</p>
                             <div class="flex items-center gap-2">
-                                <code class="text-gold text-sm bg-black/50 px-3 py-2 rounded border border-gold/30">cfx.re/join/mrlr8v</code>
-                                <button class="copy-ip text-gray-400 hover:text-gold cursor-pointer p-2">
+                                <code class="text-gold text-xs md:text-sm bg-black/50 px-3 py-2 rounded border border-gold/30 break-all">cfx.re/join/q33xb4</code>
+                                <button class="copy-ip text-gray-400 hover:text-gold cursor-pointer p-2 mobile-button">
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
                         </div>
                         <div>
-                            <p class="text-gray-400 mb-2">Status:</p>
+                            <p class="text-gray-400 mb-2 text-sm md:text-base">Status:</p>
                             <div class="flex items-center gap-2">
                                 <div class="w-3 h-3 bg-green rounded-full animate-pulse"></div>
-                                <span class="text-green font-semibold">Online</span>
+                                <span class="text-green font-semibold text-sm md:text-base">Online</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <hr class="border-gold/20 my-8">
+            <hr class="border-gold/20 my-6 md:my-8">
             
-            <div class="text-center text-gray-500 text-sm">
+            <div class="text-center text-gray-500 text-xs md:text-sm">
                 <p>&copy; 2025 PARADISE ROLEPLAY. All rights reserved.</p>
                 <p class="mt-2">Not affiliated with Rockstar Games, Inc. or Take-Two Interactive Software, Inc.</p>
             </div>
@@ -1238,7 +1309,9 @@
         // Advanced Particle System
         function createAdvancedParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 60;
+            if (!particlesContainer) return;
+            
+            const particleCount = window.innerWidth < 768 ? 0 : 60;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
@@ -1266,6 +1339,8 @@
         // Matrix Rain Effect
         function createMatrixRain() {
             const matrixContainer = document.getElementById('matrix-rain');
+            if (!matrixContainer || window.innerWidth < 768) return;
+            
             const columnCount = Math.floor(window.innerWidth / 20);
             const characters = '01PARADISE';
             
@@ -1291,12 +1366,14 @@
         const scrollToBottomBtn = document.getElementById('scrollToBottom');
         
         window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.style.opacity = '1';
-                scrollToTopBtn.style.transform = 'scale(1)';
-            } else {
-                scrollToTopBtn.style.opacity = '0';
-                scrollToTopBtn.style.transform = 'scale(0.8)';
+            if (scrollToTopBtn) {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.style.opacity = '1';
+                    scrollToTopBtn.style.transform = 'scale(1)';
+                } else {
+                    scrollToTopBtn.style.opacity = '0';
+                    scrollToTopBtn.style.transform = 'scale(0.8)';
+                }
             }
         });
         
@@ -1312,15 +1389,32 @@
         const copyIpButtons = document.querySelectorAll('#copy-ip, .copy-ip');
         copyIpButtons.forEach(button => {
             button.addEventListener('click', () => {
-                const ip = 'cfx.re/join/mrlr8v';
-                navigator.clipboard.writeText(ip).then(() => {
+                const ip = 'cfx.re/join/q33xb4';
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(ip).then(() => {
+                        const icon = button.querySelector('i');
+                        const originalClass = icon.className;
+                        icon.className = 'fas fa-check';
+                        setTimeout(() => {
+                            icon.className = originalClass;
+                        }, 2000);
+                    });
+                } else {
+                    // Fallback for older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = ip;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    
                     const icon = button.querySelector('i');
                     const originalClass = icon.className;
                     icon.className = 'fas fa-check';
                     setTimeout(() => {
                         icon.className = originalClass;
                     }, 2000);
-                });
+                }
             });
         });
         
@@ -1377,8 +1471,10 @@
             });
         }
         
-        // Enhanced 3D Card Effects
+        // Enhanced 3D Card Effects (Desktop only)
         function init3DCards() {
+            if (window.innerWidth < 768) return;
+            
             const cards = document.querySelectorAll('.card-3d');
             
             cards.forEach(card => {
@@ -1431,6 +1527,23 @@
                     particle.style.animationPlayState = 'running';
                 }
             });
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            // Reinitialize particles and matrix rain on resize
+            const particlesContainer = document.getElementById('particles');
+            const matrixContainer = document.getElementById('matrix-rain');
+            
+            if (particlesContainer) {
+                particlesContainer.innerHTML = '';
+                createAdvancedParticles();
+            }
+            
+            if (matrixContainer) {
+                matrixContainer.innerHTML = '';
+                createMatrixRain();
+            }
         });
     </script>
 </body>
