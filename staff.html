@@ -9,13 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -402,6 +395,7 @@
             <div class="hero-video-container">
                 <iframe 
                     class="hero-video"
+                    src="https://www.youtube.com/embed/KWAHGy_eee4?autoplay=1&mute=1&controls=0&loop=1&playlist=KWAHGy_eee4&modestbranding=1&rel=0&start=0&enablejsapi=1&version=3&playerapiid=ytplayer" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
@@ -564,37 +558,46 @@
                     </div>
                 </div>
                 
-                <!-- Tier 3: Server Management -->
-                <div class="mb-20" data-aos="fade-up">
-                    <h2 class="text-3xl font-bold text-gold mb-12 text-center tier-title">SERVER MANAGEMENT</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="bg-glass backdrop-blur-md p-6 rounded-xl border-t-4 border-gold/60 shadow-lg hover:shadow-gold/20 transition-all duration-300 staff-card" data-aos="fade-up" data-aos-delay="100">
-                            <div class="relative mb-6">
-                                <img src="img/staff/pan.jpg" alt="Pan" class="w-28 h-28 mx-auto rounded-full border-4 border-gold/60 object-cover staff-img">
-                                <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-gold/70 to-dark-gold/70 text-black text-xs font-bold px-3 py-1 rounded-full shadow-lg role-badge">
-                                    SERVER MANAGER
-                                </div>
-                            </div>
-                            <h4 class="text-lg text-white text-center mb-3">Pan</h4>
-                            <p class="text-gray-300 text-center text-sm">
-                                Oversees daily server operations.
-                            </p>
-                        </div>
-                        
-                        <div class="bg-glass backdrop-blur-md p-6 rounded-xl border-t-4 border-gold/60 shadow-lg hover:shadow-gold/20 transition-all duration-300 staff-card" data-aos="fade-up" data-aos-delay="200">
-                            <div class="relative mb-6">
-                                <img src="img/staff/zigana.jpg" alt="Zigana" class="w-28 h-28 mx-auto rounded-full border-4 border-gold/60 object-cover staff-img">
-                                <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-gold/70 to-dark-gold/70 text-black text-xs font-bold px-3 py-1 rounded-full shadow-lg role-badge">
-                                    SERVER MANAGER
-                                </div>
-                            </div>
-                            <h4 class="text-lg text-white text-center mb-3">Zigana</h4>
-                            <p class="text-gray-300 text-center text-sm">
-                                Manages server infrastructure and stability.
-                            </p>
-                    </div>
-                </div>
-                
+<!-- Tier 3: Server Management -->
+<div class="mb-20" data-aos="fade-up">
+  <h2 class="text-3xl font-bold text-gold mb-12 text-center tier-title">SERVER MANAGEMENT</h2>
+
+  <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+    <!-- Pan card -->
+    <div class="bg-glass backdrop-blur-md p-6 rounded-xl border-t-4 border-gold/60 shadow-lg hover:shadow-gold/20 transition-all duration-300 staff-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+      <div>
+        <div class="relative mb-6">
+          <img src="img/staff/pan.jpg" alt="Pan" class="w-28 h-28 mx-auto rounded-full border-4 border-gold/60 object-cover staff-img">
+          <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-gold/70 to-dark-gold/70 text-black text-xs font-bold px-3 py-1 rounded-full shadow-lg role-badge">
+            SERVER MANAGER
+          </div>
+        </div>
+        <h4 class="text-lg text-white text-center mb-3">Pan</h4>
+        <p class="text-gray-300 text-center text-sm">
+          Oversees daily server operations.
+        </p>
+      </div>
+    </div>
+
+    <!-- Zigana card -->
+    <div class="bg-glass backdrop-blur-md p-6 rounded-xl border-t-4 border-gold/60 shadow-lg hover:shadow-gold/20 transition-all duration-300 staff-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+      <div>
+        <div class="relative mb-6">
+          <img src="img/staff/zigana.jpg" alt="Zigana" class="w-28 h-28 mx-auto rounded-full border-4 border-gold/60 object-cover staff-img">
+          <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-gold/70 to-dark-gold/70 text-black text-xs font-bold px-3 py-1 rounded-full shadow-lg role-badge">
+            SERVER MANAGER
+          </div>
+        </div>
+        <h4 class="text-lg text-white text-center mb-3">Zigana</h4>
+        <p class="text-gray-300 text-center text-sm">
+          Manages server infrastructure and stability.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
                 <!-- Tier 4: Technical Team -->
                 <div class="mb-20" data-aos="fade-up">
                     <h2 class="text-3xl font-bold text-gold mb-12 text-center tier-title">TECHNICAL TEAM</h2>
@@ -638,7 +641,7 @@
                             </p>
                         </div>
                     </div>
-                </div>
+               </div>
                 
                 <!-- Tier 5: Administrator Team --> 
                 <div class="mb-20" data-aos="fade-up">
@@ -710,7 +713,9 @@
                             </p>
                         </div>
                     </div> 
-                
+                </div>
+            </div>
+
                 <!-- Tier 6: Community Support -->
                 <div class="mb-20" data-aos="fade-up">
                     <h2 class="text-3xl font-bold text-gold mb-12 text-center tier-title">COMMUNITY SUPPORT</h2>
