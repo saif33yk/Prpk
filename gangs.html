@@ -1,476 +1,951 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gangs of Paradise - Paradise Roleplay Pakistan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
-    <style>
-        :root {
-            --gold: #FFD700;
-            --dark-gold: #D4AF37;
-            --black: #121212;
-            --glass: rgba(18, 18, 18, 0.9);
+    <title>Gangs of Paradise | PARADISE ROLEPLAY</title>
+    <link rel="icon" type="image/x-icon" href="https://r2.fivemanage.com/52eJuqoGTwb7xhUEC0or9/PRP_Logo_No_BG.png">
+    <meta name="description" content="Discover the most feared and respected gangs in Paradise Roleplay - Elite crews dominating the streets of Los Santos."/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#FFD700',
+                        'dark-gold': '#D4AF37',
+                        black: '#121212',
+                        dark: '#0F0F0F',
+                        'dark-light': '#1A1A1A',
+                        glass: 'rgba(18, 18, 18, 0.95)',
+                        'glass-light': 'rgba(255, 255, 255, 0.1)',
+                        red: '#ff4444',
+                        green: '#00C851',
+                        purple: '#9933CC',
+                        discord: '#5865F2',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        orbitron: ['Orbitron', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-right': 'slideRight 0.5s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                        'gradient-shift': 'gradientShift 8s ease-in-out infinite',
+                        'text-glow': 'textGlow 3s ease-in-out infinite alternate',
+                        'card-float': 'cardFloat 6s ease-in-out infinite',
+                        'neon-pulse': 'neonPulse 2s ease-in-out infinite alternate',
+                        'matrix-rain': 'matrixRain 20s linear infinite',
+                        'hologram': 'hologram 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            '0%': { textShadow: '0 0 5px rgba(255, 215, 0, 0.5)' },
+                            '100%': { textShadow: '0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6)' },
+                        },
+                        slideRight: {
+                            '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.9)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                        gradientShift: {
+                            '0%, 100%': { background: 'linear-gradient(45deg, #121212, #1a1a1a, #121212)' },
+                            '50%': { background: 'linear-gradient(45deg, #1a1a1a, #121212, #1a1a1a)' },
+                        },
+                        textGlow: {
+                            '0%': { textShadow: '0 0 10px rgba(255, 215, 0, 0.3)' },
+                            '100%': { textShadow: '0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.5)' },
+                        },
+                        cardFloat: {
+                            '0%, 100%': { transform: 'translateY(0) rotateX(0deg)' },
+                            '50%': { transform: 'translateY(-5px) rotateX(2deg)' },
+                        },
+                        neonPulse: {
+                            '0%': { boxShadow: '0 0 20px rgba(255, 215, 0, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(255, 215, 0, 0.7), 0 0 60px rgba(255, 215, 0, 0.4)' },
+                        },
+                        matrixRain: {
+                            '0%': { transform: 'translateY(-100vh)' },
+                            '100%': { transform: 'translateY(100vh)' },
+                        },
+                        hologram: {
+                            '0%, 100%': { opacity: '0.8', transform: 'scale(1)' },
+                            '50%': { opacity: '1', transform: 'scale(1.02)' },
+                        },
+                    },
+                }
+            }
         }
-        
+    </script>
+    <style>
         body {
-            background: var(--black);
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
+            background-color: #121212;
+            background-image: url('assets/img/bg-pattern.png');
+            background-attachment: fixed;
             overflow-x: hidden;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 0;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/gangs-banner.jpg') center/cover;
-            border-bottom: 4px solid var(--gold);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
+        /* Advanced Particle System */
+        .particles {
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, transparent 0%, rgba(255, 215, 0, 0.1) 70%);
-            animation: pulse 8s infinite alternate;
-            z-index: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
         }
         
-        h1 {
-            font-size: 2.5rem;
-            color: var(--gold);
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-            position: relative;
-            animation: glow 2s ease-in-out infinite alternate;
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: rgba(255, 215, 0, 0.6);
+            border-radius: 50%;
+            animation: particleFloat 15s infinite linear;
         }
         
-        .gangs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
+        .particle.large {
+            width: 4px;
+            height: 4px;
+            background-color: rgba(255, 215, 0, 0.4);
+            animation: particleFloat 20s infinite linear;
         }
         
-        .gang-card {
-            background: var(--glass);
+        .particle.small {
+            width: 1px;
+            height: 1px;
+            background-color: rgba(255, 215, 0, 0.8);
+            animation: particleFloat 10s infinite linear;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #121212;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border-left: 4px solid var(--gold);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s forwards;
         }
         
-        .gang-card:nth-child(1) { animation-delay: 0.1s; }
-        .gang-card:nth-child(2) { animation-delay: 0.2s; }
-        .gang-card:nth-child(3) { animation-delay: 0.3s; }
-        .gang-card:nth-child(4) { animation-delay: 0.4s; }
-        .gang-card:nth-child(5) { animation-delay: 0.5s; }
-        .gang-card:nth-child(6) { animation-delay: 0.6s; }
-        .gang-card:nth-child(7) { animation-delay: 0.7s; }
-        .gang-card:nth-child(8) { animation-delay: 0.8s; }
-        .gang-card:nth-child(9) { animation-delay: 0.9s; }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #FFD700, #D4AF37);
+            border-radius: 10px;
+            border: 2px solid #121212;
+        }
         
-        .gang-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2), 0 0 20px rgba(255, 215, 0, 0.1);
-            border-left: 4px solid var(--gold);
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #D4AF37, #FFD700);
+        }
+        
+        /* Advanced Glow Effects */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        .neon-border {
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.2),
+                inset 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+        
+        .holographic {
+            background: linear-gradient(45deg, 
+                rgba(255, 215, 0, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 50%, 
+                rgba(255, 215, 0, 0.1) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        /* 3D Card Effects */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-3d:hover {
+            transform: translateY(-15px) rotateX(10deg) rotateY(10deg) scale(1.02);
+        }
+        
+        /* Gang Card Enhancements */
+        .gang-card {
+            position: relative;
+            perspective: 1000px;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+            overflow: hidden;
+        }
+        
+        .gang-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            animation: spin-slow 8s linear infinite;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .gang-card:hover::before {
+            opacity: 1;
+        }
+        
+        .gang-card::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: rgba(18, 18, 18, 0.95);
+            border-radius: 14px;
+            z-index: 1;
+        }
+        
+        .gang-card > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .gang-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .gang-card:hover .gang-card-inner {
+            transform: rotateY(5deg) rotateX(2deg);
         }
         
         .gang-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
             position: relative;
-            transition: all 0.5s ease;
-        }
-        
-        .gang-card:hover .gang-image {
-            transform: scale(1.05);
+            overflow: hidden;
+            border-radius: 15px 15px 0 0;
         }
         
         .gang-image::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             right: 0;
-            height: 60%;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 215, 0, 0.1) 0%, 
+                transparent 30%, 
+                transparent 70%, 
+                rgba(255, 215, 0, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
-        .gang-content {
-            padding: 20px;
+        .gang-card:hover .gang-image::after {
+            opacity: 1;
+        }
+        
+        /* Strength Tags Enhancement */
+        .strength-tag {
             position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
         
-        .gang-content::before {
+        .strength-tag::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -4px;
+            left: -100%;
+            width: 100%;
             height: 100%;
-            width: 4px;
-            background: var(--gold);
-            transform: scaleY(0);
-            transform-origin: top;
-            transition: transform 0.5s ease;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
         
-        .gang-card:hover .gang-content::before {
-            transform: scaleY(1);
+        .gang-card:hover .strength-tag::before {
+            left: 100%;
         }
         
-        .gang-name {
-            color: var(--gold);
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
-            transition: all 0.3s ease;
+        /* Animated Backgrounds */
+        .animated-bg {
+            background: linear-gradient(45deg, #121212, #1a1a1a, #121212, #0f0f0f);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
         }
         
-        .gang-card:hover .gang-name {
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
         }
         
-        .gang-founder {
-            font-weight: 600;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            color: var(--gold);
+        .floating-element:nth-child(odd) {
+            animation-delay: -2s;
+            animation-duration: 8s;
         }
         
-        .gang-founder i {
-            margin-right: 8px;
-            transition: transform 0.3s ease;
+        .floating-element:nth-child(even) {
+            animation-delay: -4s;
+            animation-duration: 10s;
         }
         
-        .gang-card:hover .gang-founder i {
-            transform: rotate(10deg);
+        /* Pulse Effects */
+        .pulse-ring {
+            position: relative;
         }
         
-        .gang-description {
-            margin-bottom: 15px;
-            min-height: 80px;
-            transition: all 0.3s ease;
+        .pulse-ring::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(255, 215, 0, 0.6);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
         }
         
-        .gang-card:hover .gang-description {
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .gang-strengths {
-            margin-top: 15px;
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-        .strength-tag {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.2);
-            color: var(--gold);
-            padding: 5px 12px;
-            border-radius: 20px;
-            margin-right: 8px;
-            margin-bottom: 8px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .gang-card:hover .strength-tag {
-            background: rgba(212, 175, 55, 0.3);
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
-        }
-        
-        /* Animations */
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-            }
-            to {
-                text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.4);
-            }
-        }
-        
-        @keyframes pulse {
+        @keyframes pulseRing {
             0% {
-                transform: scale(1);
-                opacity: 0.1;
-            }
-            50% {
-                opacity: 0.2;
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 1;
             }
             100% {
-                transform: scale(1.1);
-                opacity: 0.1;
+                transform: translate(-50%, -50%) scale(1.8);
+                opacity: 0;
             }
         }
         
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Floating animation for header text */
-        header p {
-            position: relative;
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-5px);
-            }
-        }
-        
-        /* Gold particle effects */
-        .gold-particle {
-            position: absolute;
-            background: var(--gold);
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
-        }
-        
+        /* Mobile Optimizations */
         @media (max-width: 768px) {
-            .gangs-grid {
-                grid-template-columns: 1fr;
+            .particle {
+                display: none;
             }
             
-            h1 {
-                font-size: 2rem;
+            .gang-card:hover .gang-card-inner {
+                transform: none;
             }
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Gangs of Paradise</h1>
-            <p>The most feared and respected crews in the city</p>
-        </div>
-    </header>
+<body class="font-sans text-white min-h-screen flex flex-col animated-bg">
+    <!-- Advanced Particle System -->
+    <div class="particles" id="particles"></div>
     
-    <div class="container">
-        <div class="gangs-grid">
-            <!-- Bounty Hunters -->
-            <div class="gang-card">
-                <div class="gang-image" style="background-image: url('img/gangs/bounty_hunters.jpg');"></div>
-                <div class="gang-content">
-                    <h3 class="gang-name">Bounty Hunters</h3>
-                    <p class="gang-founder"><i class="fas fa-user-secret"></i> Founded by: Samurai</p>
-                    <div class="gang-description">
-                        <p>The most decorated gang in Paradise history, holding more event trophies than any other crew. Their reputation for excellence in both numbers and skill makes them the gold standard all other gangs measure themselves against.</p>
-                    </div>
-                    <div class="gang-strengths">
-                        <span class="strength-tag">Event Dominance</span>
-                        <span class="strength-tag">Elite Members</span>
-                        <span class="strength-tag">Undisputed Champions</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Raees -->
-            <div class="gang-card">
-                <div class="gang-image" style="background-image: url('img/gangs/raees.jpg');"></div>
-                <div class="gang-content">
-                    <h3 class="gang-name">Raees</h3>
-                    <p class="gang-founder"><i class="fas fa-user-secret"></i> Founded by: Rampage</p>
-                    <div class="gang-description">
-                        <p>The strategic masterminds of Paradise. Where other gangs rely on brute force, Raees outthinks their opponents with calculated moves and psychological warfare. Their ability to turn any situation to their advantage is legendary.</p>
-                    </div>
-                    <div class="gang-strengths">
-                        <span class="strength-tag">Tactical Genius</span>
-                        <span class="strength-tag">Mind Games</span>
-                        <span class="strength-tag">Zone Control</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Bullet -->
-            <div class="gang-card">
-                <div class="gang-image" style="background-image: url('img/gangs/bullet.jpg');"></div>
-                <div class="gang-content">
-                    <h3 class="gang-name">Bullet</h3>
-                    <p class="gang-founder"><i class="fas fa-user-secret"></i> Founded by: Bullet Punjabi</p>
-                    <div class="gang-description">
-                        <p>The oldest gang of paradise. The most unpredictable force in Paradise. When Bullet crew steps into a rivalry, the entire city takes notice. Their combination of ruthless efficiency and unmatched roleplay depth makes every encounter with them memorable.</p>
-                    </div>
-                    <div class="gang-strengths">
-                        <span class="strength-tag">Rivalry Kings</span>
-                        <span class="strength-tag">RP Excellence</span>
-                        <span class="strength-tag">Loyal Brotherhood</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Yakuza -->
-            <div class="gang-card">
-                <div class="gang-image" style="background-image: url('img/gangs/yakuza.jpg');"></div>
-                <div class="gang-content">
-                    <h3 class="gang-name">Yakuza</h3>
-                    <p class="gang-founder"><i class="fas fa-user-secret"></i> Founded by: Rocket (Prince of Paradise)</p>
-                    <div class="gang-description">
-                        <p>The rising empire of Paradise. Yakuza's influence stretches from car dealerships to zone wars, growing stronger every day under Rocket's visionary leadership. Their business acumen is matched only by their rapidly improving combat skills, making them the gang to watch in coming seasons.</p>
-                    </div>
-                    <div class="gang-strengths">
-                        <span class="strength-tag">Business Empire</span>
-                        <span class="strength-tag">Rising Power</span>
-                        <span class="strength-tag">Strategic Growth</span>
-                        <span class="strength-tag">Royal Legacy</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Devils -->
-            <div class="gang-card">
-                <div class="gang-image" style="background-image: url('img/gangs/devils.jpg');"></div>
-                <div class="gang-content">
-                    <h3 class="gang-name">Devils</h3>
-                    <p class="gang-founder"><i class="fas fa-user-secret"></i> Founded by: Gaba</p>
-                    <div class="gang-description">
-                        <p>When the red code sounds, the Devils answer. This gang lives for combat, thriving in chaos where others would retreat. Their reputation as the most feared fighters in Paradise is well-earned through countless victories against impossible odds.</p>
-                    </div>
-                    <div class="gang-strengths">
-                        <span class="strength-tag">War Machines</span>
-                        <span class="strength-tag">Code Red Specialists</span>
-                        <span class="strength-tag">Unbreakable Will</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Vikings -->
-            <div class="gang-card">
-                <div class="gang-image" style="background-image: url('img/gangs/vikings.jpg');"></div>
-                <div class="gang-content">
-                    <h3 class="gang-name">Vikings</h3>
-                    <p class="gang-founder"><i class="fas fa-user-secret"></i> Founded by: Rex</p>
-                    <div class="gang-description">
-                        <p>The undisputed kings of Paradise's underworld economy. Vikings control the flow of narcotics with an iron grip, their "King of Weed" title representing just one facet of their vast drug empire. Cross them in business, and you'll find out why they're named after history's most feared raiders.</p>
-                    </div>
-                    <div class="gang-strengths">
-                        <span class="strength-tag">Drug Monopoly</span>
-                        <span class="strength-tag">Weed Kings</span>
-                        <span class="strength-tag">Economic Power</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Qatil -->
-            <div class="gang-card">
-                <div class="gang-image" style="background-image: url('img/gangs/qatil.jpg');"></div>
-                <div class="gang-content">
-                    <h3 class="gang-name">Qatil</h3>
-                    <p class="gang-founder"><i class="fas fa-user-secret"></i> Founded by: Mr. Qatil</p>
-                    <div class="gang-description">
-                        <p>A gang that moves through Paradise like shadows - unseen until it's too late. Qatil's unique blend of strategic warfare and deep roleplay immersion makes them one of the most respected crews in the city, feared for their precision and admired for their style.</p>
-                    </div>
-                    <div class="gang-strengths">
-                        <span class="strength-tag">Silent Assassins</span>
-                        <span class="strength-tag">RP Masters</span>
-                        <span class="strength-tag">Precision Strikes</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Topak -->
-            <div class="gang-card">
-                <div class="gang-image" style="background-image: url('img/gangs/topak.jpg');"></div>
-                <div class="gang-content">
-                    <h3 class="gang-name">Topak</h3>
-                    <p class="gang-founder"><i class="fas fa-user-secret"></i> Founded by: Paracha </p>
-                    <div class="gang-description">
-                        <p>The legitimate face of Paradise's underworld. Topak runs their operations like a Fortune 500 company, with car dealerships serving as the perfect cover for their more... entrepreneurial activities. Don't let their business suits fool you - they're every bit as dangerous as the more overt gangs.</p>
-                    </div>
-                    <div class="gang-strengths">
-                        <span class="strength-tag">Business Moguls</span>
-                        <span class="strength-tag">Car Empire</span>
-                        <span class="strength-tag">Corporate Warfare</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Matrix -->
-            <div class="gang-card">
-                <div class="gang-image" style="background-image: url('img/gangs/matrix.jpg');"></div>
-                <div class="gang-content">
-                    <h3 class="gang-name">Matrix</h3>
-                    <p class="gang-founder"><i class="fas fa-user-secret"></i> Founded by: Champ</p>
-                    <div class="gang-description">
-                        <p>The new crew on the block making everyone take notice. Matrix's rapid rise through Paradise's gang hierarchy proves their founder's vision and their members' dedication. They may be underdogs now, but their trajectory suggests they'll be running with the big dogs sooner than anyone expects.</p>
-                    </div>
-                    <div class="gang-strengths">
-                        <span class="strength-tag">Rising Stars</span>
-                        <span class="strength-tag">Ambitious</span>
-                        <span class="strength-tag">Fast Learners</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Floating Elements -->
+    <div class="floating-element text-gold text-6xl" style="top: 10%; left: 5%;">
+        <i class="fas fa-crown"></i>
+    </div>
+    <div class="floating-element text-gold text-4xl" style="top: 60%; right: 10%;">
+        <i class="fas fa-gem"></i>
+    </div>
+    <div class="floating-element text-gold text-5xl" style="bottom: 20%; left: 15%;">
+        <i class="fas fa-star"></i>
     </div>
 
-    <script>
-        // Create gold particles on header hover
-        document.querySelector('header').addEventListener('mousemove', function(e) {
-            const particles = document.createElement('div');
-            particles.className = 'gold-particle';
-            
-            const size = Math.random() * 5 + 2;
-            particles.style.width = `${size}px`;
-            particles.style.height = `${size}px`;
-            
-            particles.style.left = `${e.clientX}px`;
-            particles.style.top = `${e.clientY}px`;
-            
-            document.body.appendChild(particles);
-            
-            // Animate particle
-            const animation = particles.animate([
-                { opacity: 0.8, transform: 'translate(0, 0)' },
-                { opacity: 0, transform: `translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px)` }
-            ], {
-                duration: 1000 + Math.random() * 1000,
-                easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
-            });
-            
-            animation.onfinish = () => particles.remove();
-        });
+    <!-- Enhanced Navbar -->
+    <nav class="bg-glass backdrop-blur-md shadow-lg fixed w-full z-50 border-b border-gold/20 neon-border">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold flex items-center gap-1 glow-text">
+                        <span class="text-gold animate-glow font-orbitron">PARADISE</span> 
+                        <span class="text-white font-orbitron">ROLEPLAY</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">Home</a>
+                    <a href="about.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">About</a>
+                    <a href="staff.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">Staff</a>
+                    <a href="gangs.html" class="text-gold border-b-2 border-gold pb-1 transition duration-300 glow-text">Gangs</a>
+                    <a href="join.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">Join</a>
+                    <a href="wall-of-fame.html" class="text-white hover:text-gold transition duration-300 hover:scale-110">Wall of Fame</a>
+                    <div class="relative group">
+                        <button class="text-white hover:text-gold transition duration-300 flex items-center gap-1 group-hover:scale-110">
+                            Rules
+                            <i class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-glass backdrop-blur-md rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 border border-gold/20 neon-border">
+                            <a href="rules/index.html" class="block px-4 py-2 text-white hover:text-gold hover:bg-dark/50 transition duration-300 flex items-center gap-2 hover:translate-x-1">
+                                <i class="fas fa-book text-xs"></i>
+                                Rules Hub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-white hover:text-gold focus:outline-none p-2 transition-transform hover:scale-110">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-glass backdrop-blur-md border-t border-gold/10 p-4 animate-slide-up">
+            <div class="flex flex-col space-y-2">
+                <a href="index.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Home</a>
+                <a href="about.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">About</a>
+                <a href="staff.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Staff</a>
+                <a href="gangs.html" class="text-gold py-2 px-3 rounded bg-black/30 transition duration-300">Gangs</a>
+                <a href="join.html" class="text-white hover:text-gold py-2 px-3 rounded hover:bg-black/30 transition duration-300 hover:translate-x-1">Join</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-24 pb-16 bg-gradient-to-b from-black to-dark relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-gold/5"></div>
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <div data-aos="fade-down" data-aos-duration="1000">
+                <div class="flex justify-center items-center mb-6">
+                    <i class="fas fa-skull-crossbones text-5xl md:text-6xl text-gold animate-float pulse-ring"></i>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-wider font-orbitron">
+                    <span class="text-gold animate-glow inline-block glow-text">GANGS OF</span>
+                    <br>
+                    <span class="text-white animate-fade-in" style="animation-delay: 0.5s;">PARADISE</span>
+                </h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8 animate-float">
+                    The most feared and respected crews dominating the streets of Los Santos
+                </p>
+                <div class="flex justify-center space-x-8 text-sm text-gray-400">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-gold mb-1 pulse-ring">9</div>
+                        <p>Active Gangs</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-gold mb-1 pulse-ring">200+</div>
+                        <p>Gang Members</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-gold mb-1 pulse-ring">24/7</div>
+                        <p>Territory Wars</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        // Add slight delay to gang cards for staggered animation
-        document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.gang-card');
-            cards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
+        <!-- Animated Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-gold rounded-full animate-pulse opacity-30"></div>
+            <div class="absolute top-3/4 right-1/4 w-1 h-1 bg-gold rounded-full animate-pulse opacity-40" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 left-1/3 w-1.5 h-1.5 bg-gold rounded-full animate-pulse opacity-20" style="animation-delay: 2s;"></div>
+        </div>
+        <!-- Enhanced Background Animations -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="w-64 h-64 absolute -top-32 -left-32 opacity-5 bg-gold rounded-full blur-3xl animate-pulse-slow"></div>
+            <div class="w-96 h-96 absolute top-1/2 -right-48 opacity-5 bg-gold rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 3s;"></div>
+            <div class="w-48 h-48 absolute bottom-0 left-1/3 opacity-5 bg-gold rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-20 bg-dark">
+        <!-- Main Content Background Animations -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="w-72 h-72 absolute top-1/4 right-0 opacity-3 bg-gold rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+            <div class="w-56 h-56 absolute bottom-1/4 left-0 opacity-3 bg-gold rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 4s;"></div>
+        </div>
+        <div class="container mx-auto px-4">
+            <!-- Gang Cards Grid -->
+            <section class="mb-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Bounty Hunters -->
+                    <div class="gang-card holographic bg-glass backdrop-blur-md rounded-xl overflow-hidden animate-card-float" data-aos="fade-up" data-aos-delay="100">
+                        <div class="gang-card-inner">
+                            <div class="gang-image h-48 bg-cover bg-center relative" style="background-image: url('/placeholder.svg?height=300&width=400');">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <div class="text-gold font-bold text-lg">🏆 Most Decorated</div>
+                                </div>
+                            </div>
+                            <div class="p-6 relative">
+                                <h3 class="text-2xl font-bold text-gold mb-2 font-orbitron animate-text-glow">Bounty Hunters</h3>
+                                <p class="text-gold/80 mb-3 flex items-center">
+                                    <i class="fas fa-user-secret mr-2"></i>Founded by: Samurai
+                                </p>
+                                <p class="text-gray-300 mb-4 leading-relaxed">
+                                    The most decorated gang in Paradise history, holding more event trophies than any other crew. Their reputation for excellence makes them the gold standard.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="strength-tag bg-gold/20 text-gold px-3 py-1 rounded-full text-xs border border-gold/30">Event Dominance</span>
+                                    <span class="strength-tag bg-gold/20 text-gold px-3 py-1 rounded-full text-xs border border-gold/30">Elite Members</span>
+                                    <span class="strength-tag bg-gold/20 text-gold px-3 py-1 rounded-full text-xs border border-gold/30">Champions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Raees -->
+                    <div class="gang-card holographic bg-glass backdrop-blur-md rounded-xl overflow-hidden animate-card-float" data-aos="fade-up" data-aos-delay="200" style="animation-delay: 1s;">
+                        <div class="gang-card-inner">
+                            <div class="gang-image h-48 bg-cover bg-center relative" style="background-image: url('/placeholder.svg?height=300&width=400');">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <div class="text-purple font-bold text-lg">🧠 Strategic Masters</div>
+                                </div>
+                            </div>
+                            <div class="p-6 relative">
+                                <h3 class="text-2xl font-bold text-purple mb-2 font-orbitron">Raees</h3>
+                                <p class="text-purple/80 mb-3 flex items-center">
+                                    <i class="fas fa-user-secret mr-2"></i>Founded by: Rampage
+                                </p>
+                                <p class="text-gray-300 mb-4 leading-relaxed">
+                                    The strategic masterminds of Paradise. Where others rely on brute force, Raees outthinks their opponents with calculated moves and psychological warfare.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="strength-tag bg-purple/20 text-purple px-3 py-1 rounded-full text-xs border border-purple/30">Tactical Genius</span>
+                                    <span class="strength-tag bg-purple/20 text-purple px-3 py-1 rounded-full text-xs border border-purple/30">Mind Games</span>
+                                    <span class="strength-tag bg-purple/20 text-purple px-3 py-1 rounded-full text-xs border border-purple/30">Zone Control</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bullet -->
+                    <div class="gang-card holographic bg-glass backdrop-blur-md rounded-xl overflow-hidden animate-card-float" data-aos="fade-up" data-aos-delay="300" style="animation-delay: 2s;">
+                        <div class="gang-card-inner">
+                            <div class="gang-image h-48 bg-cover bg-center relative" style="background-image: url('/placeholder.svg?height=300&width=400');">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <div class="text-red font-bold text-lg">⚡ Oldest Gang</div>
+                                </div>
+                            </div>
+                            <div class="p-6 relative">
+                                <h3 class="text-2xl font-bold text-red mb-2 font-orbitron">Bullet</h3>
+                                <p class="text-red/80 mb-3 flex items-center">
+                                    <i class="fas fa-user-secret mr-2"></i>Founded by: Bullet Punjabi
+                                </p>
+                                <p class="text-gray-300 mb-4 leading-relaxed">
+                                    The oldest gang of Paradise. The most unpredictable force when they step into rivalry. Their combination of ruthless efficiency and unmatched roleplay depth is legendary.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="strength-tag bg-red/20 text-red px-3 py-1 rounded-full text-xs border border-red/30">Rivalry Kings</span>
+                                    <span class="strength-tag bg-red/20 text-red px-3 py-1 rounded-full text-xs border border-red/30">RP Excellence</span>
+                                    <span class="strength-tag bg-red/20 text-red px-3 py-1 rounded-full text-xs border border-red/30">Brotherhood</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Yakuza -->
+                    <div class="gang-card holographic bg-glass backdrop-blur-md rounded-xl overflow-hidden animate-card-float" data-aos="fade-up" data-aos-delay="400" style="animation-delay: 3s;">
+                        <div class="gang-card-inner">
+                            <div class="gang-image h-48 bg-cover bg-center relative" style="background-image: url('/placeholder.svg?height=300&width=400');">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <div class="text-green font-bold text-lg">👑 Prince's Empire</div>
+                                </div>
+                            </div>
+                            <div class="p-6 relative">
+                                <h3 class="text-2xl font-bold text-green mb-2 font-orbitron">Yakuza</h3>
+                                <p class="text-green/80 mb-3 flex items-center">
+                                    <i class="fas fa-user-secret mr-2"></i>Founded by: Rocket (Prince of Paradise)
+                                </p>
+                                <p class="text-gray-300 mb-4 leading-relaxed">
+                                    The rising empire of Paradise. Yakuza's influence stretches from car dealerships to zone wars, growing stronger every day under Rocket's visionary leadership.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="strength-tag bg-green/20 text-green px-3 py-1 rounded-full text-xs border border-green/30">Business Empire</span>
+                                    <span class="strength-tag bg-green/20 text-green px-3 py-1 rounded-full text-xs border border-green/30">Rising Power</span>
+                                    <span class="strength-tag bg-green/20 text-green px-3 py-1 rounded-full text-xs border border-green/30">Royal Legacy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Devils -->
+                    <div class="gang-card holographic bg-glass backdrop-blur-md rounded-xl overflow-hidden animate-card-float" data-aos="fade-up" data-aos-delay="500" style="animation-delay: 4s;">
+                        <div class="gang-card-inner">
+                            <div class="gang-image h-48 bg-cover bg-center relative" style="background-image: url('/placeholder.svg?height=300&width=400');">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <div class="text-red font-bold text-lg">🎭 RP Masters</div>
+                                </div>
+                            </div>
+                            <div class="p-6 relative">
+                                <h3 class="text-2xl font-bold text-red mb-2 font-orbitron">Devils</h3>
+                                <p class="text-red/80 mb-3 flex items-center">
+                                    <i class="fas fa-user-secret mr-2"></i>Founded by: Gaba
+                                </p>
+                                <p class="text-gray-300 mb-4 leading-relaxed">
+                                    The premier roleplay gang of Paradise. Thugs excel in immersive storytelling, character development, and creating authentic street narratives that define Los Santos culture.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="strength-tag bg-red/20 text-red px-3 py-1 rounded-full text-xs border border-red/30">RP Excellence</span>
+                                    <span class="strength-tag bg-red/20 text-red px-3 py-1 rounded-full text-xs border border-red/30">Storytelling</span>
+                                    <span class="strength-tag bg-red/20 text-red px-3 py-1 rounded-full text-xs border border-red/30">Character Depth</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vikings -->
+                    <div class="gang-card holographic bg-glass backdrop-blur-md rounded-xl overflow-hidden animate-card-float" data-aos="fade-up" data-aos-delay="600" style="animation-delay: 5s;">
+                        <div class="gang-card-inner">
+                            <div class="gang-image h-48 bg-cover bg-center relative" style="background-image: url('/placeholder.svg?height=300&width=400');">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <div class="text-green font-bold text-lg">🌿 Drug Kings</div>
+                                </div>
+                            </div>
+                            <div class="p-6 relative">
+                                <h3 class="text-2xl font-bold text-green mb-2 font-orbitron">Vikings</h3>
+                                <p class="text-green/80 mb-3 flex items-center">
+                                    <i class="fas fa-user-secret mr-2"></i>Founded by: Rex
+                                </p>
+                                <p class="text-gray-300 mb-4 leading-relaxed">
+                                    The undisputed kings of Paradise's underworld economy. Vikings control the flow of narcotics with an iron grip, their "King of Weed" title representing their vast drug empire.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="strength-tag bg-green/20 text-green px-3 py-1 rounded-full text-xs border border-green/30">Drug Monopoly</span>
+                                    <span class="strength-tag bg-green/20 text-green px-3 py-1 rounded-full text-xs border border-green/30">Weed Kings</span>
+                                    <span class="strength-tag bg-green/20 text-green px-3 py-1 rounded-full text-xs border border-green/30">Economic Power</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Qatil -->
+                    <div class="gang-card holographic bg-glass backdrop-blur-md rounded-xl overflow-hidden animate-card-float" data-aos="fade-up" data-aos-delay="700" style="animation-delay: 6s;">
+                        <div class="gang-card-inner">
+                            <div class="gang-image h-48 bg-cover bg-center relative" style="background-image: url('/placeholder.svg?height=300&width=400');">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <div class="text-purple font-bold text-lg">🗡️ Silent Assassins</div>
+                                </div>
+                            </div>
+                            <div class="p-6 relative">
+                                <h3 class="text-2xl font-bold text-purple mb-2 font-orbitron">Qatil</h3>
+                                <p class="text-purple/80 mb-3 flex items-center">
+                                    <i class="fas fa-user-secret mr-2"></i>Founded by: Mr. Qatil
+                                </p>
+                                <p class="text-gray-300 mb-4 leading-relaxed">
+                                    A gang that moves through Paradise like shadows - unseen until it's too late. Qatil's unique blend of strategic warfare and deep roleplay immersion makes them highly respected.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="strength-tag bg-purple/20 text-purple px-3 py-1 rounded-full text-xs border border-purple/30">Silent Assassins</span>
+                                    <span class="strength-tag bg-purple/20 text-purple px-3 py-1 rounded-full text-xs border border-purple/30">RP Masters</span>
+                                    <span class="strength-tag bg-purple/20 text-purple px-3 py-1 rounded-full text-xs border border-purple/30">Precision</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Syndicate -->
+                    <div class="gang-card holographic bg-glass backdrop-blur-md rounded-xl overflow-hidden animate-card-float" data-aos="fade-up" data-aos-delay="800" style="animation-delay: 7s;">
+                        <div class="gang-card-inner">
+                            <div class="gang-image h-48 bg-cover bg-center relative" style="background-image: url('/placeholder.svg?height=300&width=400');">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <div class="text-gray-300 font-bold text-lg">🤝 Brotherhood</div>
+                                </div>
+                            </div>
+                            <div class="p-6 relative">
+                                <h3 class="text-2xl font-bold text-gray-300 mb-2 font-orbitron">Syndicate</h3>
+                                <p class="text-gray-400 mb-3 flex items-center">
+                                    <i class="fas fa-user-secret mr-2"></i>Founded by: Chaudary
+                                </p>
+                                <p class="text-gray-300 mb-4 leading-relaxed">
+                                    The most loyal brotherhood in Paradise. Syndicate values family bonds above all else, with unbreakable loyalty and brotherhood that has stood the test of time in Los Santos.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="strength-tag bg-gray-800/40 text-gray-300 px-3 py-1 rounded-full text-xs border border-gray-600/30">Brotherhood</span>
+                                    <span class="strength-tag bg-gray-800/40 text-gray-300 px-3 py-1 rounded-full text-xs border border-gray-600/30">Loyalty</span>
+                                    <span class="strength-tag bg-gray-800/40 text-gray-300 px-3 py-1 rounded-full text-xs border border-gray-600/30">Family Bonds</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Join Gang Section -->
+            <section class="text-center" data-aos="fade-up">
+                <div class="holographic p-12 rounded-xl border border-gold/20">
+                    <h2 class="text-4xl font-bold text-gold mb-6 font-orbitron animate-glow glow-text">
+                        READY TO JOIN THE STREETS?
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                        Think you have what it takes to run with the most feared crews in Paradise? 
+                        Connect to our server and prove your worth on the streets of Los Santos.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="join.html" class="card-3d px-8 py-4 bg-gradient-to-r from-gold to-dark-gold text-black font-bold rounded-lg hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 flex items-center justify-center group neon-pulse">
+                            <i class="fas fa-play mr-2 group-hover:scale-110 transition-transform"></i>
+                            CONNECT TO SERVER
+                        </a>
+                        <a href="https://discord.gg/prpk" target="_blank" class="card-3d px-8 py-4 bg-discord/20 border border-discord/30 text-discord rounded-lg hover:bg-discord/30 transition-all duration-300 flex items-center justify-center group">
+                            <i class="fab fa-discord mr-2 group-hover:scale-110 transition-transform"></i>
+                            JOIN DISCORD
+                        </a>
+                    </div>
+                    <div class="mt-8 text-sm text-gray-400">
+                        <p>Server IP: <code class="bg-black/50 px-2 py-1 rounded text-gold">cfx.re/join/q33xb4</code></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-black/50 backdrop-blur-md py-16 border-t border-gold/20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Column 1 -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <a href="index.html" class="text-2xl font-bold text-gold glow-text font-orbitron">
+                        PARADISE <span class="text-white">ROLEPLAY</span>
+                    </a>
+                    <p class="mt-4 text-gray-400 leading-relaxed">
+                        Experience the most immersive FiveM roleplay server with custom scripts, vehicles, and an active community of passionate players.
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="https://discord.gg/prpk" target="_blank" 
+                           class="w-10 h-10 bg-discord/20 rounded-lg flex items-center justify-center hover:bg-discord/30 transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-discord text-discord"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@paradiseroleplaypk" target="_blank" 
+                           class="w-10 h-10 bg-red/20 rounded-lg flex items-center justify-center hover:bg-red/30 transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-youtube text-red"></i>
+                        </a>
+                        <a href="https://www.instagram.com/theparadisehug/" target="_blank"
+                           class="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg flex items-center justify-center hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-instagram text-pink-400"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-white font-bold mb-6 text-lg glow-text">Navigation</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-home w-4 mr-2"></i>Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-info-circle w-4 mr-2"></i>About</a></li>
+                        <li><a href="staff.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-users w-4 mr-2"></i>Staff</a></li>
+                        <li><a href="gangs.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-skull w-4 mr-2"></i>Gangs</a></li>
+                        <li><a href="wall-of-fame.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-trophy w-4 mr-2"></i>Wall of Fame</a></li>
+                        <li><a href="rules/index.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-book w-4 mr-2"></i>Rules Hub</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-white font-bold mb-6 text-lg glow-text">Server Info</h4>
+                    <ul class="space-y-3">
+                        <li><a href="join.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-play w-4 mr-2"></i>How to Join</a></li>
+                        <li><a href="rules/index.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-book w-4 mr-2"></i>Server Rules</a></li>
+                        <li><a href="wall-of-fame.html" class="text-gray-400 hover:text-gold transition-colors flex items-center"><i class="fas fa-trophy w-4 mr-2"></i>Wall of Fame</a></li>
+                        <li><span class="text-gray-400 flex items-center"><i class="fas fa-users w-4 mr-2"></i>28000+ Members</span></li>
+                        <li><span class="text-gray-400 flex items-center"><i class="fas fa-clock w-4 mr-2"></i>24/7 Online</span></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="text-white font-bold mb-6 text-lg glow-text">Connect</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-gray-400 mb-2">Server IP:</p>
+                            <div class="flex items-center gap-2">
+                                <code class="text-gold text-sm bg-black/50 px-3 py-2 rounded border border-gold/30">cfx.re/join/q33xb4</code>
+                                <button class="copy-ip text-gray-400 hover:text-gold cursor-pointer p-2">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 mb-2">Status:</p>
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 bg-green rounded-full animate-pulse"></div>
+                                <span class="text-green font-semibold">Online</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="border-gold/20 my-8">
+            
+            <div class="text-center text-gray-500 text-sm">
+                <p>&copy; 2025 PARADISE ROLEPLAY. All rights reserved.</p>
+                <p class="mt-2">Not affiliated with Rockstar Games, Inc. or Take-Two Interactive Software, Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('animate-slide-up');
+                    mobileMenuButton.innerHTML = '<i class="fas fa-times text-xl"></i>';
+                } else {
+                    mobileMenuButton.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+                }
+            });
+        }
+
+        // Advanced Particle System
+        function createAdvancedParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 60;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                
+                // Random particle types
+                const types = ['particle', 'particle large', 'particle small'];
+                particle.className = types[Math.floor(Math.random() * types.length)];
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                
+                // Random animation duration and delay
+                const duration = Math.random() * 15 + 10;
+                const delay = Math.random() * 10;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Copy IP functionality
+        const copyIpButtons = document.querySelectorAll('.copy-ip');
+        copyIpButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const ip = 'cfx.re/join/q33xb4';
+                navigator.clipboard.writeText(ip).then(() => {
+                    const icon = button.querySelector('i');
+                    const originalClass = icon.className;
+                    icon.className = 'fas fa-check';
+                    setTimeout(() => {
+                        icon.className = originalClass;
+                    }, 2000);
+                });
+            });
+        });
+
+        // Enhanced 3D Card Effects
+        function init3DCards() {
+            const cards = document.querySelectorAll('.card-3d');
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const angleY = (x - centerX) / 10;
+                    const angleX = (centerY - y) / 10;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateZ(20px)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+                });
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            createAdvancedParticles();
+            init3DCards();
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+
+        // Performance optimization - pause animations when page is not visible
+        document.addEventListener('visibilitychange', function() {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach(particle => {
+                if (document.hidden) {
+                    particle.style.animationPlayState = 'paused';
+                } else {
+                    particle.style.animationPlayState = 'running';
+                }
             });
         });
     </script>
