@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>PARADISE ROLEPLAY | Premium Roleplay Experience</title>
+    <title>Paradise Roleplay Official</title>
     <link rel="icon" type="image/x-icon" href="https://r2.fivemanage.com/dhDkLcwEjNUNnA2kMEe09/logo.png">
     <meta name="description" content="Experience the ultimate FiveM roleplay server with realistic gameplay, custom cars, jobs, and more."/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=O_ObwAOrEn0tLN_kyco6n91C1FaKi7ABLxG0jlX5NbDki2CSPrGZMUIzH60RvkuOh2UhC2isNQuLUk7p5WR0MVm9WtF2-zblnas6HM4KSWptlwl_e9kIZ5CTK6le7MSu0lUyPFwe7S0HFwehbpEA-w6_ourtmxn0Hqd4pN_iCYhN1LX32USvugNr8ndkIAsFLQ2ukPG0TSr6meKfoW1zxeXiOE9OcLVe1K4zLfhg2dU2qxB_BFAApzD2JUp_c2RDlSgD2OqSyoAR1oij8eCWkg" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uZGlzY29yZGFwcC5jb20vYXR0YWNobWVudHMvMTM5NzY4ODIxMDYxMTc2OTM0NC8xMzk5NzUzMDUwOTY4ODE3ODE0L2luZGV4Lmh0bWw_ZXg9Njg4YTI1MWQmaXM9Njg4OGQzOWQmaG09YWE4ZDYwNDM5YjdkNzk5OWNmNDEzZmUxMzk0NjlhYWJkMDZjZTY4YmYxZTM5ZTRlMmYyZGRmZjI0N2MxMjViOCY"/><script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -102,6 +102,30 @@
                 }
             }
         }
+    </script>
+    <script>
+        async function fetchServerData() {
+            try {
+                const response = await fetch("https://servers-frontend.fivem.net/api/servers/single/mrlr8v");
+                const data = await response.json();
+
+                // Set player count
+                document.getElementById("playerCount").innerText = `${data.Data.clients}/${data.Data.sv_maxclients}`;
+
+                // Uptime - assume always 24/7 (or replace with uptime logic if you use a monitoring API)
+                document.getElementById("uptime").innerText = "24/7";
+
+                // Join button
+                document.getElementById("joinButton").href = "https://cfx.re/join/mrlr8v";
+
+            } catch (error) {
+                console.error("Error fetching FiveM server data:", error);
+                document.getElementById("playerCount").innerText = "Offline";
+            }
+        }
+
+        fetchServerData();
+        setInterval(fetchServerData, 60000); // Update every 60 seconds
     </script>
     <style>
         body {
@@ -730,32 +754,37 @@
             
             <!-- Enhanced Action Buttons -->
             <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8 px-4" data-aos="fade-up" data-aos-delay="400">
-                <a href="join.html" 
-                   class="card-3d px-6 py-4 bg-gradient-to-r from-gold to-dark-gold text-black font-bold rounded-lg hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 flex items-center justify-center group neon-pulse mobile-button">
+                <a href="fivem://connect/mrlr8v" 
+                class="card-3d px-6 py-4 bg-gradient-to-r from-gold to-dark-gold text-black font-bold rounded-lg hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 flex items-center justify-center group neon-pulse mobile-button">
                     <i class="fas fa-play mr-2 group-hover:scale-110 transition-transform"></i>
                     Join Server
                 </a>
                 <a href="about.html" 
-                   class="card-3d px-6 py-4 bg-glass backdrop-blur-md border border-gold/30 text-white rounded-lg hover:bg-gold/20 transition-all duration-300 flex items-center justify-center group mobile-button">
+                class="card-3d px-6 py-4 bg-glass backdrop-blur-md border border-gold/30 text-white rounded-lg hover:bg-gold/20 transition-all duration-300 flex items-center justify-center group mobile-button">
                     <i class="fas fa-info-circle mr-2 group-hover:translate-x-1 transition-transform"></i>
                     Learn More
                 </a>
             </div>
 
-            <!-- Enhanced Stats Dashboard -->
+            <!-- Enhanced Stats Dashboard with Live FiveM Data -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-8 px-4" data-aos="fade-up" data-aos-delay="600">
+                <!-- Live Player Count -->
                 <div class="holographic p-4 md:p-6 rounded-xl text-center card-3d animate-card-float">
                     <div class="text-2xl md:text-3xl font-bold text-gold pulse-ring mb-2">
-                        <span class="stat-counter">100</span>+
+                        <span id="playerCount">Loading...</span>
                     </div>
-                    <p class="text-gray-400 text-xs md:text-sm">Daily Active Players</p>
+                    <p class="text-gray-400 text-xs md:text-sm">Online Players</p>
                     <div class="loading-bar mt-2"></div>
                 </div>
+
+                <!-- Server Uptime (static or custom logic) -->
                 <div class="holographic p-4 md:p-6 rounded-xl text-center card-3d animate-card-float" style="animation-delay: 0.5s;">
-                    <div class="text-2xl md:text-3xl font-bold text-gold pulse-ring mb-2">24/7</div>
+                    <div class="text-2xl md:text-3xl font-bold text-gold pulse-ring mb-2" id="uptime">Loading...</div>
                     <p class="text-gray-400 text-xs md:text-sm">Server Uptime</p>
                     <div class="loading-bar mt-2"></div>
                 </div>
+
+                <!-- Active Gangs (manual or dynamic if needed) -->
                 <div class="holographic p-4 md:p-6 rounded-xl text-center card-3d animate-card-float" style="animation-delay: 1s;">
                     <div class="text-2xl md:text-3xl font-bold text-gold pulse-ring mb-2">
                         <span class="stat-counter">12</span>+
@@ -763,12 +792,14 @@
                     <p class="text-gray-400 text-xs md:text-sm">Active Gangs</p>
                     <div class="loading-bar mt-2"></div>
                 </div>
+
+                <!-- Join Server Button -->
                 <div class="holographic p-4 md:p-6 rounded-xl text-center card-3d animate-card-float" style="animation-delay: 1.5s;">
-                    <div class="text-2xl md:text-3xl font-bold text-gold pulse-ring mb-2">
-                        <span class="stat-counter">20</span>+
-                    </div>
-                    <p class="text-gray-400 text-xs md:text-sm">Content Creators</p>
-                    <div class="loading-bar mt-2"></div>
+                    <a id="joinButton" href="fivem://connect/mrlr8v" target="_blank">
+                        <div class="text-2xl md:text-3xl font-bold text-gold pulse-ring mb-2">Join Now</div>
+                        <p class="text-gray-400 text-xs md:text-sm">Click to Connect</p>
+                        <div class="loading-bar mt-2"></div>
+                    </a>
                 </div>
             </div>
 
@@ -981,10 +1012,11 @@
                             <div class="w-3 h-3 bg-green rounded-full animate-pulse"></div>
                             <span class="text-green font-semibold">Server Online</span>
                         </div>
-                        <a href="join.html" class="inline-flex items-center text-gold hover:text-white transition-colors mobile-button">
+                        <a href="fivem://connect/mrlr8v" class="inline-flex items-center text-gold hover:text-white transition-colors mobile-button">
                             Connect Now <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
+
                 </div>
 
                 <!-- Discord Card -->
@@ -1017,7 +1049,7 @@
                         </div>
                         <h3 class="text-xl md:text-2xl font-bold text-white mb-6 glow-text">Server Status</h3>
                     </div>
-                    
+
                     <div class="grid grid-cols-2 gap-4 mb-6">
                         <div class="holographic p-4 rounded-lg text-center">
                             <div class="flex items-center justify-center gap-2 mb-2">
@@ -1030,13 +1062,14 @@
                             <p class="text-gray-400 text-xs md:text-sm">Uptime</p>
                         </div>
                     </div>
-                    
+
                     <div class="text-center">
-                        <a href="#" class="inline-flex items-center text-gold hover:text-white transition-colors mobile-button">
-                            View Details <i class="fas fa-arrow-right ml-2"></i>
+                        <a href="fivem://connect/mrlr8v" class="inline-flex items-center text-gold hover:text-white transition-colors mobile-button">
+                            Connect Now <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1173,13 +1206,13 @@
                     </p>
                     
                     <div class="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 mb-8">
-                        <a href="join.html" 
-                           class="card-3d px-6 md:px-8 py-4 bg-gradient-to-r from-gold to-dark-gold text-black font-bold rounded-lg hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 flex items-center justify-center group neon-pulse mobile-button">
+                        <a href="fivem://connect/mrlr8v" 
+                        class="card-3d px-6 md:px-8 py-4 bg-gradient-to-r from-gold to-dark-gold text-black font-bold rounded-lg hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 flex items-center justify-center group neon-pulse mobile-button">
                             <i class="fas fa-gamepad mr-2 group-hover:scale-110 transition-transform"></i>
                             Join Server Now
                         </a>
                         <a href="https://discord.gg/prpk" target="_blank" 
-                           class="card-3d px-6 md:px-8 py-4 bg-discord/20 border border-discord/30 text-discord rounded-lg hover:bg-discord/30 transition-all duration-300 flex items-center justify-center group mobile-button">
+                        class="card-3d px-6 md:px-8 py-4 bg-discord/20 border border-discord/30 text-discord rounded-lg hover:bg-discord/30 transition-all duration-300 flex items-center justify-center group mobile-button">
                             <i class="fab fa-discord mr-2 group-hover:scale-110 transition-transform"></i>
                             Join Discord
                         </a>
